@@ -70,6 +70,38 @@ export default function App() {
                     )}
                 </div>
             </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Status</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <select name="status" className="form-control" ref={register({ required: true})}>
+                        <option value="1">Aktywny</option>
+                        <option value="2">Zablokowany</option>
+                        <option value="3">Zwrócony</option>
+                        <option value="9">Wybrakowany</option>
+                    </select>
+                    {errors.classification && (
+                        <Error alert="Nieprawidłowy status" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Ilość</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="quantity" className="form-control" type="number" ref={register({ required: false })} />
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Cena zakupu</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="purchase_price" className="form-control" type="number" ref={register({ required: false })} />
+                </div>
+            </div>
             <input type="submit" />
         </form>
     );
