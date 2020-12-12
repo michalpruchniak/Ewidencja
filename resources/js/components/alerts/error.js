@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Error = (props) => (
-    <div class="error alert-danger" role="alert">
+    <div className="error alert-danger" role="alert">
         {props.alert}
     </div>
 

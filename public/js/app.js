@@ -90565,7 +90565,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var Error = function Error(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    "class": "error alert-danger",
+    className: "error alert-danger",
     role: "alert"
   }, props.alert);
 };
@@ -90583,63 +90583,37 @@ var Error = function Error(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return App; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lodash_fp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/fp */ "./node_modules/lodash/fp.js");
 /* harmony import */ var lodash_fp__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_fp__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
-/* harmony import */ var _storeDevice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../storeDevice */ "./resources/js/components/components/device/storeDevice.js");
-/* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
+/* harmony import */ var _storeDevice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../storeDevice */ "./resources/js/components/components/device/storeDevice.js");
+/* harmony import */ var _units_container_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../units/container/select */ "./resources/js/components/components/units/container/select.js");
+/* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
 
 
 
 
 
 
-function App() {
-  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_3__["useForm"])(),
+
+
+
+var createDevice = function createDevice(_ref) {
+  var units = _ref.units;
+
+  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_4__["useForm"])(),
       register = _useForm.register,
       handleSubmit = _useForm.handleSubmit,
-      watch = _useForm.watch,
       errors = _useForm.errors;
 
-  var onSubmit = function onSubmit(data) {
-    console.log(JSON.stringify(data));
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: handleSubmit(_storeDevice__WEBPACK_IMPORTED_MODULE_4__["default"])
+    onSubmit: handleSubmit(_storeDevice__WEBPACK_IMPORTED_MODULE_5__["default"])
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12 col-md-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Typ sieci")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12 col-md-10"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "network_type",
-    className: "form-control",
-    ref: register({
-      min: 1,
-      max: 6
-    })
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "1"
-  }, "PSTD"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "2"
-  }, "Internet"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "3"
-  }, "ODN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "4"
-  }, "Maszyna do pisania"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "5"
-  }, "GSM"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "6"
-  }, "Nie pod\u0142\u0105czony")), errors.network_type && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    alert: "To nie jest prawid\u0142owy typ sieci"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 col-md-2"
@@ -90654,40 +90628,12 @@ function App() {
       minLength: 5,
       maxLength: 40
     })
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("inventory.type", errors) === "required" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("inventory.type", errors) === "required" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_7__["default"], {
     alert: "Musisz poda\u0107 numer inwentarzowy"
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("inventory.type", errors) === "minLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("inventory.type", errors) === "minLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_7__["default"], {
     alert: "Numer inwentarzowy jest za kr\xF3tki"
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("inventory.type", errors) === "maxLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("inventory.type", errors) === "maxLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_7__["default"], {
     alert: "Numer inwentarzowy jest za d\u0142ugi"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12 col-md-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Klasyfikacja")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12 col-md-10"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    name: "classification",
-    className: "form-control",
-    ref: register({
-      required: false,
-      min: 0,
-      max: 5
-    })
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "1"
-  }, "\u015AT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "2"
-  }, "P\u015AT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "3"
-  }, "EP"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "4"
-  }, "WNiP"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "5"
-  }, "Pozosta\u0142e"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "0"
-  }, "Bez klasyfikacji")), errors.classification && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    alert: "Nieprawid\u0142owa klasyfikacja"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90708,7 +90654,7 @@ function App() {
     value: "3"
   }, "Zwr\xF3cony"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "9"
-  }, "Wybrakowany")), errors.classification && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "Wybrakowany")), errors.classification && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_7__["default"], {
     alert: "Nieprawid\u0142owy status"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
@@ -90736,10 +90682,38 @@ function App() {
     ref: register({
       required: false
     })
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "submit"
-  }));
-}
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Jednostka")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-10"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "unit_id",
+    className: "form-control",
+    ref: register({
+      required: true
+    })
+  }, units.list.map(function (unit) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: unit.id,
+      value: unit.id
+    }, unit.name);
+  })), errors.unit_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    alert: "Nieprawid\u0142owa jednostka"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Dodaj urz\u0105dzenie"));
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    units: state.units
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps)(createDevice));
 
 /***/ }),
 
@@ -91070,6 +91044,17 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(UnitsContainer));
+
+/***/ }),
+
+/***/ "./resources/js/components/components/units/container/select.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/components/units/container/select.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/home/michal/ewidencja-laravel/resources/js/components/components/units/container/select.js'");
 
 /***/ }),
 

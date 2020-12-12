@@ -12,6 +12,7 @@ class Device extends Model
         'set_id',
         'network_type',
         'inventory',
-        'classification'
+        'classification',
+        'unit_id'
     ];
 }

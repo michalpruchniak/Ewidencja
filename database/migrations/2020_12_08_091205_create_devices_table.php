@@ -19,8 +19,10 @@ class CreateDevicesTable extends Migration
             $table->string('network_type')->default(1); //1. PSTD, 2. Internet, 3. ODN, 4. Typewriter, 5. GSM, 6. Not connected
             $table->string('inventory')->nullable();
             $table->string('classification')->nullable(); //1 - ŚT, 2 - PŚT, 3 - EP, WNiP - 4, 9 - pozstałe, 0 - bez klasyfikacji
-            $table->integer('status'); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
+            $table->integer('status')->default(1); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
             $table->integer('quantity')->nullable()->default(0); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
+            $table->float('purchase_price')->nullable()->default(0); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
+            $table->integer('unit_id')->nullable();
             $table->timestamps();
         });
     }
