@@ -9,10 +9,20 @@ class Device extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'name',
         'set_id',
         'network_type',
         'inventory',
         'classification',
-        'unit_id'
+        'unit_id',
+        'producers_id',
+        'type_id',
+        'serial_number',
+        'imei',
+        'address_name',
+        'address_ip',
+        'address_mac',
+        'description',
+        'operation_system',
     ];
 }

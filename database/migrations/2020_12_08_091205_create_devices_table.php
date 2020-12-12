@@ -15,6 +15,7 @@ class CreateDevicesTable extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
             $table->integer('set_id')->nullable(); //number of set
             $table->string('network_type')->default(1); //1. PSTD, 2. Internet, 3. ODN, 4. Typewriter, 5. GSM, 6. Not connected
             $table->string('inventory')->nullable();
@@ -22,7 +23,16 @@ class CreateDevicesTable extends Migration
             $table->integer('status')->default(1); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
             $table->integer('quantity')->nullable()->default(0); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
             $table->float('purchase_price')->nullable()->default(0); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
+            $table->integer('producers_id')->nullable();
             $table->integer('unit_id')->nullable();
+            $table->integer('type_id')->nullable();
+            $table->string('serial_number')->nullable();
+            $table->string('imei')->nullable();
+            $table->string('address_name')->nullable();
+            $table->string('address_ip')->nullable();
+            $table->string('address_mac')->nullable();
+            $table->text('description')->nullable();
+            $table->string('operation_system')->nullabel();
             $table->timestamps();
         });
     }

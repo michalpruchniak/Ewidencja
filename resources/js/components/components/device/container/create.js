@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import{ connect } from 'react-redux';
 import { useForm } from "react-hook-form";
 import storeDevice from "../storeDevice";
-import SelectUnit from '../../units/container/select';
 import Error from '../../../alerts/error';
 
 
@@ -14,7 +13,18 @@ const createDevice = ({ units }) => {
 
     return (
         <form onSubmit={handleSubmit(storeDevice)}>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Nazwa</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="name" className="form-control" type="string" ref={register({ required: true, minLength: 7, maxLength: 50 })} />
 
+                    {errors.name&& (
+                        <Error alert="Nieprawidłowa nazwa" />
+                    )}
+                </div>
+            </div>
             <div className="row">
                 <div className="col-12 col-md-2">
                     <label>Numer inwentarzowy</label>
@@ -71,13 +81,111 @@ const createDevice = ({ units }) => {
                     <label>Jednostka</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <select name="unit_id" className="form-control" ref={register({ required: true })}>
+                    <select name="unit_id" className="form-control" ref={register({ required: true, min:1, max:20 })}>
                         {units.list.map(unit =>
                             <option key={unit.id} value={unit.id}>{unit.name}</option>
                         )}
                     </select>
                     {errors.unit_id && (
                         <Error alert="Nieprawidłowa jednostka" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Producent</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    {/* It should be comple. At this time I don't have a producer's redux store */}
+                    <select name="producers_id" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                    </select>
+                    {errors.producers_id && (
+                        <Error alert="Nieprawidłowy producent" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Typ</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    {/* It should be comple. At this time I don't have a type's redux store */}
+
+                    <select name="type_id" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                    </select>
+                    {errors.type_id && (
+                        <Error alert="Nieprawidłowy typ urządzenia" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Numer seryjny</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="serial_number" className="form-control" type="string" ref={register({ required: false, minLength: 5, maxLength: 45 })} />
+
+                    {errors.serial_number && (
+                        <Error alert="Nieprawidłowy numer seryjny" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>IMEI</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="imei" className="form-control" type="string" ref={register({ required: false, minLength: 2, maxLength: 35 })} />
+
+                    {errors.imei && (
+                        <Error alert="Nieprawidłowy IMEI" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Adres</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="address_name" className="form-control" type="string" ref={register({ required: false, minLength: 2, maxLength: 45 })} />
+
+                    {errors.address_name && (
+                        <Error alert="Nieprawidłowy adres" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>IP</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="address_ip" className="form-control" type="string" ref={register({ required: false, minLength: 7, maxLength: 15 })} />
+
+                    {errors.address_ip && (
+                        <Error alert="Nieprawidłowy adres IP" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>MAC</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <input name="address_mac" className="form-control" type="string" ref={register({ required: false, minLength: 7, maxLength: 45 })} />
+
+                    {errors.address_mac && (
+                        <Error alert="Nieprawidłowy adres MAC" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label>Opis</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <textarea name="description" className="form-control" ref={register({ required: false, minLength: 3, maxLength: 400 })}></textarea>
+                    {errors.description && (
+                        <Error alert="Nieprawidłowy opis" />
                     )}
                 </div>
             </div>
