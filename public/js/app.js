@@ -77958,12 +77958,20 @@ var people = function people() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
-    initial = _require.initial;
+    initial = _require.initial; // In original db programmer add a column "parent_id" what it doesn't nessesery.
+// So I remove that but I left the original id
+
 
 var INITIAL_TYPES = {
   list: [{
-    id: 1,
-    name: 'Komputer PC'
+    id: 2,
+    name: 'Komputer stacjonarny'
+  }, {
+    id: 3,
+    name: 'Laptop'
+  }, {
+    id: 4,
+    name: 'Notebook'
   }]
 };
 
