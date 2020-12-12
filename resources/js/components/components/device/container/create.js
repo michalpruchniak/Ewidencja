@@ -7,7 +7,7 @@ import storeDevice from "../storeDevice";
 import Error from '../../../alerts/error';
 
 
-const createDevice = ({ units }) => {
+const createDevice = ({ units, types }) => {
     const { register, handleSubmit, errors } = useForm();
 
 
@@ -109,9 +109,10 @@ const createDevice = ({ units }) => {
                     <label>Typ</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    {/* It should be comple. At this time I don't have a type's redux store */}
-
                     <select name="type_id" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                        {types.list.map(type =>
+                            <option key={type.id} value={type.id}>{type.name}</option>
+                        )}
                     </select>
                     {errors.type_id && (
                         <Error alert="Nieprawidłowy typ urządzenia" />
@@ -194,7 +195,8 @@ const createDevice = ({ units }) => {
     );
 }
 const mapStateToProps = state => ({
-    units: state.units
+    units: state.units,
+    types: state.types
 })
 
 export default connect(mapStateToProps)(createDevice)
