@@ -111,7 +111,13 @@ const createDevice = ({ units, types }) => {
                 <div className="col-12 col-md-10">
                     <select name="type_id" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
                         {types.list.map(type =>
-                            <option key={type.id} value={type.id}>{type.name}</option>
+                            <optgroup key={type.id} label={type.name}>
+
+                                {type.child && type.child.length && type.child.map(element => {
+                                    return <option value={element.id} key={element.id}>{element.name}</option>
+                                }
+                                )}
+                            </optgroup>
                         )}
                     </select>
                     {errors.type_id && (
