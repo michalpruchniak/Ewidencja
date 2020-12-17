@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 import units from './components/units/reducer'
 import people from './components/people/reducer'
 import types from './components/types/reducer'
+import producers from './components/producers/reducer'
 
 
 
@@ -12,6 +13,7 @@ const reducers = combineReducers({
     units: units,
     people: people,
     types: types,
+    producers: producers
 });
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));

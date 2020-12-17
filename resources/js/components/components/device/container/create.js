@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import _ from "lodash/fp";
 import ReactDOM from "react-dom";
 import{ connect } from 'react-redux';
@@ -6,13 +6,19 @@ import { useForm } from "react-hook-form";
 import storeDevice from "../storeDevice";
 import Error from '../../../alerts/error';
 
+import { getAllProducers } from '../../producers/operations';
 
-const createDevice = ({ units, types }) => {
+
+const createDevice = ({ units, types, producers }) => {
     const { register, handleSubmit, errors } = useForm();
 
+    useEffect(() => { getAllProducers() }, [])
 
     return (
         <form onSubmit={handleSubmit(storeDevice)}>
+            {producers.list.map(producer =>
+                producer.name
+            )}
             <div className="row">
                 <div className="col-12 col-md-2">
                     <label>Nazwa</label>
@@ -202,7 +208,7 @@ const createDevice = ({ units, types }) => {
 }
 const mapStateToProps = state => ({
     units: state.units,
-    types: state.types
+    types: state.types,
+    producers: state.producers
 })
-
 export default connect(mapStateToProps)(createDevice)

@@ -1,14 +1,13 @@
 import axios from 'axios'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-
-const storeDevices = (values, e) => {
+const storeProducer = (values, e) => {
     const API = axios.create({
-        baseURL: 'http://localhost:8000/devices/',
+        baseURL: 'http://localhost:8000/producers',
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-    });
 
+    });
 
     try{
         API.post('store', values)
@@ -24,14 +23,9 @@ const storeDevices = (values, e) => {
                });
            });
            e.target.reset();
-
-
     }catch(error){
         console.log(error);
     }
-
-
 }
 
-
-export default storeDevices;
+export default storeProducer;
