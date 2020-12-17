@@ -21,10 +21,10 @@ const createDevice = ({ units, types, producers }) => {
             )}
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Nazwa</label>
+                    <label htmlFor="name">Nazwa</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="name" className="form-control" type="string" ref={register({ required: true, minLength: 7, maxLength: 50 })} />
+                    <input name="name" id="name" className="form-control" type="string" ref={register({ required: true, minLength: 7, maxLength: 50 })} />
 
                     {errors.name&& (
                         <Error alert="Nieprawidłowa nazwa" />
@@ -33,10 +33,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Numer inwentarzowy</label>
+                    <label htmlFor="inventory">Numer inwentarzowy</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="inventory" className="form-control" type="string" ref={register({ required: true, minLength: 5, maxLength: 40 })} />
+                    <input name="inventory" id="inventory" className="form-control" type="string" ref={register({ required: true, minLength: 5, maxLength: 40 })} />
 
                     {_.get("inventory.type", errors) === "required" && (
                         <Error alert="Musisz podać numer inwentarzowy" />
@@ -52,10 +52,10 @@ const createDevice = ({ units, types, producers }) => {
 
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Status</label>
+                    <label htmlFor="status">Status</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <select name="status" className="form-control" ref={register({ required: true})}>
+                    <select name="status" id="status" className="form-control" ref={register({ required: true})}>
                         <option value="1">Aktywny</option>
                         <option value="2">Zablokowany</option>
                         <option value="3">Zwrócony</option>
@@ -68,26 +68,26 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Ilość</label>
+                    <label htmlFor="quantity">Ilość</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="quantity" className="form-control" type="number" ref={register({ required: false })} />
+                    <input name="quantity" id="quantity" className="form-control" type="number" ref={register({ required: false })} />
                 </div>
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Cena zakupu</label>
+                    <label htmlFor="purchase_price">Cena zakupu</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="purchase_price" className="form-control" type="number" ref={register({ required: false })} />
+                    <input name="purchase_price" id="purchase_price" className="form-control" type="number" ref={register({ required: false })} />
                 </div>
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Jednostka</label>
+                    <label htmlFor="unit">Jednostka</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <select name="unit_id" className="form-control" ref={register({ required: true, min:1, max:20 })}>
+                    <select name="unit_id" id="unity" className="form-control" ref={register({ required: true, min:1, max:20 })}>
                         {units.list.map(unit =>
                             <option key={unit.id} value={unit.id}>{unit.name}</option>
                         )}
@@ -99,11 +99,11 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Producent</label>
+                    <label htmlFor="producer">Producent</label>
                 </div>
                 <div className="col-12 col-md-10">
                     {/* It should be comple. At this time I don't have a producer's redux store */}
-                    <select name="producers_id" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                    <select name="producers_id" id="producer" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
                     </select>
                     {errors.producers_id && (
                         <Error alert="Nieprawidłowy producent" />
@@ -112,10 +112,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Typ</label>
+                    <label htmlFor="type">Typ</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <select name="type_id" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                    <select name="type_id" id="type" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
                         {types.list.map(type =>
                             <optgroup key={type.id} label={type.name}>
 
@@ -133,10 +133,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Numer seryjny</label>
+                    <label htmlFor="serial_number">Numer seryjny</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="serial_number" className="form-control" type="string" ref={register({ required: false, minLength: 5, maxLength: 45 })} />
+                    <input name="serial_number" id="serial_number" className="form-control" type="string" ref={register({ required: false, minLength: 5, maxLength: 45 })} />
 
                     {errors.serial_number && (
                         <Error alert="Nieprawidłowy numer seryjny" />
@@ -145,10 +145,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>IMEI</label>
+                    <label htmlFor="imei">IMEI</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="imei" className="form-control" type="string" ref={register({ required: false, minLength: 2, maxLength: 35 })} />
+                    <input name="imei" id="imei" className="form-control" type="string" ref={register({ required: false, minLength: 2, maxLength: 35 })} />
 
                     {errors.imei && (
                         <Error alert="Nieprawidłowy IMEI" />
@@ -157,10 +157,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Adres</label>
+                    <label htmlFor="address">Adres</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="address_name" className="form-control" type="string" ref={register({ required: false, minLength: 2, maxLength: 45 })} />
+                    <input name="address_name" id="address" className="form-control" type="string" ref={register({ required: false, minLength: 2, maxLength: 45 })} />
 
                     {errors.address_name && (
                         <Error alert="Nieprawidłowy adres" />
@@ -169,10 +169,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>IP</label>
+                    <label htmlFor="ip">IP</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="address_ip" className="form-control" type="string" ref={register({ required: false, minLength: 7, maxLength: 15 })} />
+                    <input name="address_ip" id="ip" className="form-control" type="string" ref={register({ required: false, minLength: 7, maxLength: 15 })} />
 
                     {errors.address_ip && (
                         <Error alert="Nieprawidłowy adres IP" />
@@ -181,10 +181,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>MAC</label>
+                    <label htmlFor="mac">MAC</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <input name="address_mac" className="form-control" type="string" ref={register({ required: false, minLength: 7, maxLength: 45 })} />
+                    <input name="address_mac" id="mac" className="form-control" type="string" ref={register({ required: false, minLength: 7, maxLength: 45 })} />
 
                     {errors.address_mac && (
                         <Error alert="Nieprawidłowy adres MAC" />
@@ -193,10 +193,10 @@ const createDevice = ({ units, types, producers }) => {
             </div>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label>Opis</label>
+                    <label htmlFor="description">Opis</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    <textarea name="description" className="form-control" ref={register({ required: false, minLength: 3, maxLength: 400 })}></textarea>
+                    <textarea name="description" id="description" className="form-control" ref={register({ required: false, minLength: 3, maxLength: 400 })}></textarea>
                     {errors.description && (
                         <Error alert="Nieprawidłowy opis" />
                     )}

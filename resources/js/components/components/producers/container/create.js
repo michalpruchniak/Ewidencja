@@ -12,7 +12,7 @@ const createProducer = () => {
         <form onSubmit={handleSubmit(storeProducer)}>
             <div className="row">
                 <div className="col-12 col-md-2">
-                    <label for="name">Nazwa</label>
+                    <label htmlFor="name">Nazwa</label>
                 </div>
                 <div className="col-12 col-md-10">
                     <input name="name" type="strig" ref={register({ required:true, minLength: 2, maxLength: 45 })} />

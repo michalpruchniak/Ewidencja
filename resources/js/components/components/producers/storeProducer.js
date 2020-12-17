@@ -12,7 +12,7 @@ const storeProducer = (values, e) => {
     try{
         API.post('store', values)
            .then((res) => {
-               toast.success('Urządzenie zostało dodane poprawnie', {
+               toast.success('Producent został dodany poprawnie', {
                    position: "bottom-left",
                    autoClose: 5000,
                    hideProgressBar: false,
