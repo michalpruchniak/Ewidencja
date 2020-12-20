@@ -102,8 +102,10 @@ const createDevice = ({ units, types, producers }) => {
                     <label htmlFor="producer">Producent</label>
                 </div>
                 <div className="col-12 col-md-10">
-                    {/* It should be comple. At this time I don't have a producer's redux store */}
-                    <select name="producers_id" id="producer" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                    <select name="producers_id" id="producer" className="form-control" ref={register({ required: true, min: 1 })}>
+                            {producers.list.map(producer =>
+                                <option key={producer.id} value={producer.id}>{producer.name}</option>
+                            )}
                     </select>
                     {errors.producers_id && (
                         <Error alert="Nieprawidłowy producent" />

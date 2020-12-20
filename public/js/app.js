@@ -77577,10 +77577,14 @@ var createDevice = function createDevice(_ref) {
     className: "form-control",
     ref: register({
       required: true,
-      min: 1,
-      max: 20
+      min: 1
     })
-  }), errors.producers_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, producers.list.map(function (producer) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: producer.id,
+      value: producer.id
+    }, producer.name);
+  })), errors.producers_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
     alert: "Nieprawid\u0142owy producent"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
@@ -78039,23 +78043,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lodash_fp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/fp */ "./node_modules/lodash/fp.js");
 /* harmony import */ var lodash_fp__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_fp__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
-/* harmony import */ var _storeProducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../storeProducer */ "./resources/js/components/components/producers/storeProducer.js");
-/* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./resources/js/components/components/producers/actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
+/* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
 
 
 
-var createProducer = function createProducer() {
-  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useForm"])(),
+
+
+
+var createProducer = function createProducer(props) {
+  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_4__["useForm"])(),
       register = _useForm.register,
       handleSubmit = _useForm.handleSubmit,
       errors = _useForm.errors;
 
+  var storeProducer = function storeProducer(values, e) {
+    var API = axios.create({
+      baseURL: 'http://localhost:8000/producers',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    try {
+      API.post('store', values).then(function (res) {
+        react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"].success('Producent został dodany poprawnie', {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        });
+        props.add({
+          id: res.data.id,
+          name: res.data.name
+        });
+      });
+      e.target.reset();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: handleSubmit(_storeProducer__WEBPACK_IMPORTED_MODULE_3__["default"])
+    onSubmit: handleSubmit(storeProducer)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -78072,11 +78113,11 @@ var createProducer = function createProducer() {
       minLength: 2,
       maxLength: 45
     })
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("name.type", errors) === "required" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("name.type", errors) === "required" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "To pole jest wymagane"
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("name.type", errors) === "minLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("name.type", errors) === "minLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "To pole musi si\u0119 sk\u0142ada\u0107 z przynajmniej 2 znak\xF3w"
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("name.type", errors) === "maxLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_1___default.a.get("name.type", errors) === "maxLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "To pole musi si\u0119 sk\u0142ada\u0107 z maksymalnie 40 znak\xF3w"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
@@ -78084,7 +78125,15 @@ var createProducer = function createProducer() {
   }, "Dodaj nowego producenta"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (createProducer);
+var mapDispatchToPtops = function mapDispatchToPtops(dispatch) {
+  return {
+    add: function add(person) {
+      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_2__["default"].add(person));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(null, mapDispatchToPtops)(createProducer));
 
 /***/ }),
 
@@ -78271,54 +78320,6 @@ var producers = function producers() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (producers);
-
-/***/ }),
-
-/***/ "./resources/js/components/components/producers/storeProducer.js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/components/producers/storeProducer.js ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-var storeProducer = function storeProducer(values, e) {
-  var API = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-    baseURL: 'http://localhost:8000/producers',
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
-
-  try {
-    API.post('store', values).then(function (res) {
-      react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].success('Producent został dodany poprawnie', {
-        position: "bottom-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined
-      });
-    });
-    e.target.reset();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (storeProducer);
 
 /***/ }),
 

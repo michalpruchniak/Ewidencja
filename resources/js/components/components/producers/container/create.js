@@ -1,13 +1,46 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import _ from "lodash/fp";
+import actions from '../actions'
+import { connect } from 'react-redux'
 import { useForm } from 'react-hook-form'
-import storeProducer from "../storeProducer";
 import Error from '../../../alerts/error'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
-const createProducer = () => {
+const createProducer = (props) => {
     const { register, handleSubmit, errors } = useForm();
 
+    const storeProducer = (values, e) => {
+        const API = axios.create({
+            baseURL: 'http://localhost:8000/producers',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+
+        });
+
+        try {
+            API.post('store', values)
+                .then((res) => {
+                    toast.success('Producent został dodany poprawnie', {
+                        position: "bottom-left",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    props.add({
+                        id: res.data.id,
+                        name: res.data.name
+                    });
+
+                });
+            e.target.reset();
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return(
         <form onSubmit={handleSubmit(storeProducer)}>
             <div className="row">
@@ -33,5 +66,7 @@ const createProducer = () => {
 
 }
 
-
-export default createProducer;
+const mapDispatchToPtops = dispatch => ({
+    add: person => dispatch(actions.add(person))
+});
+export default connect(null, mapDispatchToPtops)(createProducer);

@@ -10,23 +10,23 @@ const storeDevices = (values, e) => {
     });
 
 
-    try{
+    try {
         API.post('store', values)
-           .then((res) => {
-               toast.success('Urządzenie zostało dodane poprawnie', {
-                   position: "bottom-left",
-                   autoClose: 5000,
-                   hideProgressBar: false,
-                   closeOnClick: true,
-                   pauseOnHover: true,
-                   draggable: true,
-                   progress: undefined,
-               });
-           });
-           e.target.reset();
+            .then((res) => {
+                toast.success('Urządzenie zostało dodane poprawnie', {
+                    position: "bottom-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
+        e.target.reset();
 
 
-    }catch(error){
+    } catch (error) {
         console.log(error);
     }
 
