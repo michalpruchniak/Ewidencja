@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 const createProducer = (props) => {
     const { register, handleSubmit, errors } = useForm();
 
-    const storeProducer = (values, e) => {
+    const storeProducer = async (values, e) => {
         const API = axios.create({
             baseURL: 'http://localhost:8000/producers',
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -19,23 +19,23 @@ const createProducer = (props) => {
         });
 
         try {
-            API.post('store', values)
-                .then((res) => {
-                    toast.success('Producent został dodany poprawnie', {
-                        position: "bottom-left",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                    props.add({
-                        id: res.data.id,
-                        name: res.data.name
-                    });
+            await API.post('store', values)
+                        .then((res) => {
+                            toast.success('Producent został dodany poprawnie', {
+                                position: "bottom-left",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                            });
+                            props.add({
+                                id: res.data.id,
+                                name: res.data.name
+                            });
 
-                });
+                        });
             e.target.reset();
         } catch (error) {
             console.log(error);
