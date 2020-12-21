@@ -3,7 +3,7 @@ import _ from "lodash/fp";
 import ReactDOM from "react-dom";
 import{ connect } from 'react-redux';
 import { useForm } from "react-hook-form";
-import storeDevice from "../storeDevice";
+import storeDevice from "../storeDevice.js";
 import Error from '../../../alerts/error';
 
 import { getAllProducers } from '../../producers/operations';
@@ -16,9 +16,6 @@ const createDevice = ({ units, types, producers }) => {
 
     return (
         <form onSubmit={handleSubmit(storeDevice)}>
-            {producers.list.map(producer =>
-                producer.name
-            )}
             <div className="row">
                 <div className="col-12 col-md-2">
                     <label htmlFor="name">Nazwa</label>
