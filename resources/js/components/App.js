@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import Units from './components/units/container/list'
-import People from './components/people/container/list'
 import { getAllProducers } from './components/producers/operations';
 import { getAllUnits } from './components/units/operations';
-import Producers from './components/producers/container/list'
+import { getAllOperationsystem } from './components/operationsystem/operations';
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
 import { ToastContainer } from 'react-toastify';
@@ -19,10 +17,11 @@ import {
 
 
 
-function App({ getAllProducers, getAllUnits }) {
+function App({ getAllProducers, getAllUnits, getAllOperationsystem }) {
   useEffect(() => {
      getAllProducers(),
-     getAllUnits()
+     getAllUnits(),
+     getAllOperationsystem()
   }, [])
 
   return (
@@ -55,6 +54,7 @@ function App({ getAllProducers, getAllUnits }) {
 
 const mapDispatchToProps = dispatch => ({
   getAllProducers: () => dispatch(getAllProducers()),
-  getAllUnits: () => dispatch(getAllUnits())
+  getAllUnits: () => dispatch(getAllUnits()),
+  getAllOperationsystem: () => dispatch(getAllOperationsystem())
 })
 export default connect(null, mapDispatchToProps)(App);
