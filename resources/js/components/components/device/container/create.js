@@ -6,13 +6,10 @@ import { useForm } from "react-hook-form";
 import storeDevice from "../storeDevice.js";
 import Error from '../../../alerts/error';
 
-import { getAllProducers } from '../../producers/operations';
 
 
-const createDevice = ({ units, types, producers }) => {
+const createDevice = ({ units, types, producers,operationSystem }) => {
     const { register, handleSubmit, errors } = useForm();
-
-    useEffect(() => { getAllProducers() }, [])
 
     return (
         <form onSubmit={handleSubmit(storeDevice)}>
@@ -106,6 +103,21 @@ const createDevice = ({ units, types, producers }) => {
                     </select>
                     {errors.producers_id && (
                         <Error alert="Nieprawidłowy producent" />
+                    )}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-12 col-md-2">
+                    <label htmlFor="operation_system">System operacyjny</label>
+                </div>
+                <div className="col-12 col-md-10">
+                    <select name="operation_system" id="operation_system" className="form-control" ref={register({ required: true, min: 1 })}>
+                        {operationSystem.list.map(system =>
+                            <option key={system.id} value={system.id}>{system.name}</option>
+                        )}
+                    </select>
+                    {errors.operation_system && (
+                        <Error alert="Nieprawidłowy system operacyjny" />
                     )}
                 </div>
             </div>
@@ -208,6 +220,7 @@ const createDevice = ({ units, types, producers }) => {
 const mapStateToProps = state => ({
     units: state.units,
     types: state.types,
-    producers: state.producers
+    producers: state.producers,
+    operationSystem: state.operationSystem
 })
 export default connect(mapStateToProps)(createDevice)

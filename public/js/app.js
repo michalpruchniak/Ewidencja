@@ -80415,8 +80415,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
 /* harmony import */ var _storeDevice_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../storeDevice.js */ "./resources/js/components/components/device/storeDevice.js");
 /* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
-/* harmony import */ var _producers_operations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../producers/operations */ "./resources/js/components/components/producers/operations.js");
-
 
 
 
@@ -80428,16 +80426,14 @@ __webpack_require__.r(__webpack_exports__);
 var createDevice = function createDevice(_ref) {
   var units = _ref.units,
       types = _ref.types,
-      producers = _ref.producers;
+      producers = _ref.producers,
+      operationSystem = _ref.operationSystem;
 
   var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_4__["useForm"])(),
       register = _useForm.register,
       handleSubmit = _useForm.handleSubmit,
       errors = _useForm.errors;
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    Object(_producers_operations__WEBPACK_IMPORTED_MODULE_7__["getAllProducers"])();
-  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: handleSubmit(_storeDevice_js__WEBPACK_IMPORTED_MODULE_5__["default"])
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80588,6 +80584,29 @@ var createDevice = function createDevice(_ref) {
     }, producer.name);
   })), errors.producers_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
     alert: "Nieprawid\u0142owy producent"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "operation_system"
+  }, "System operacyjny")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-10"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "operation_system",
+    id: "operation_system",
+    className: "form-control",
+    ref: register({
+      required: true,
+      min: 1
+    })
+  }, operationSystem.list.map(function (system) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: system.id,
+      value: system.id
+    }, system.name);
+  })), errors.operation_system && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    alert: "Nieprawid\u0142owy system operacyjny"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -80746,7 +80765,8 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     units: state.units,
     types: state.types,
-    producers: state.producers
+    producers: state.producers,
+    operationSystem: state.operationSystem
   };
 };
 
@@ -81681,7 +81701,7 @@ var reducers = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   people: _components_people_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   types: _components_types_reducer__WEBPACK_IMPORTED_MODULE_5__["default"],
   producers: _components_producers_reducer__WEBPACK_IMPORTED_MODULE_6__["default"],
-  operationsystem: _components_operationsystem_reducer__WEBPACK_IMPORTED_MODULE_7__["default"]
+  operationSystem: _components_operationsystem_reducer__WEBPACK_IMPORTED_MODULE_7__["default"]
 });
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(reducers, Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_1__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"])));
 /* harmony default export */ __webpack_exports__["default"] = (store);

@@ -6,7 +6,7 @@ import units from './components/units/reducer'
 import people from './components/people/reducer'
 import types from './components/types/reducer'
 import producers from './components/producers/reducer'
-import operationsystem from './components/operationsystem/reducer'
+import operationSystem from './components/operationsystem/reducer'
 
 
 
@@ -15,7 +15,7 @@ const reducers = combineReducers({
     people: people,
     types: types,
     producers: producers,
-    operationsystem: operationsystem
+    operationSystem: operationSystem
 });
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
