@@ -81916,16 +81916,10 @@ var Nav = function Nav() {
     className: "dropdown-item"
   }, "Nowy producent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-divider"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/nowy-protokol-przekazania",
     className: "dropdown-item"
-  }, "Protok\xF3\u0142 przekazania"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
-    className: "dropdown-item"
-  }, "Sent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
-    className: "dropdown-item"
-  }, "Drafts"))))));
+  }, "Nowy protok\xF3\u0142 przekazania"))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
