@@ -80286,10 +80286,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_producers_operations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/producers/operations */ "./resources/js/components/components/producers/operations.js");
 /* harmony import */ var _components_units_operations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/units/operations */ "./resources/js/components/components/units/operations.js");
 /* harmony import */ var _components_operationsystem_operations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/operationsystem/operations */ "./resources/js/components/components/operationsystem/operations.js");
-/* harmony import */ var _components_device_container_create__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/device/container/create */ "./resources/js/components/components/device/container/create.js");
-/* harmony import */ var _components_producers_container_create__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/producers/container/create */ "./resources/js/components/components/producers/container/create.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _layout_nav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./layout/nav */ "./resources/js/components/layout/nav.js");
+/* harmony import */ var _components_device_container_create__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/device/container/create */ "./resources/js/components/components/device/container/create.js");
+/* harmony import */ var _components_producers_container_create__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/producers/container/create */ "./resources/js/components/components/producers/container/create.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -80307,11 +80309,11 @@ function App(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     getAllProducers(), getAllUnits(), getAllOperationsystem();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/nowe-urzadzenie"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/nowy-producent"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_producers_container_create__WEBPACK_IMPORTED_MODULE_6__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_7__["ToastContainer"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_producers_container_create__WEBPACK_IMPORTED_MODULE_7__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_8__["ToastContainer"], {
     position: "bottom-left",
     autoClose: 5000,
     hideProgressBar: false,
@@ -80603,7 +80605,7 @@ var createDevice = function createDevice(_ref) {
   }, operationSystem.list.map(function (system) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: system.id,
-      value: system.id
+      value: system.name
     }, system.name);
   })), errors.operation_system && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
     alert: "Nieprawid\u0142owy system operacyjny"
@@ -81667,6 +81669,71 @@ var units = function units() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (units);
+
+/***/ }),
+
+/***/ "./resources/js/components/layout/nav.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/layout/nav.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+var Nav = function Nav() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "navbar navbar-expand-md navbar-light bg-light"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "navbar-toggler",
+    "data-toggle": "collapse",
+    "data-target": "#navbarCollapse"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "navbar-toggler-icon"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "collapse navbar-collapse justify-content-between",
+    id: "navbarCollapse"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "navbar-nav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "nav-item nav-link active"
+  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-item dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "nav-link dropdown-toggle",
+    "data-toggle": "dropdown"
+  }, "Nowy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "dropdown-menu"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/nowe-urzadzenie",
+    className: "dropdown-item"
+  }, "Nowe urz\u0105dzenie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/nowy-producent",
+    className: "dropdown-item"
+  }, "Nowy producent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "dropdown-divider"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "dropdown-item"
+  }, "Protok\xF3\u0142 przekazania"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "dropdown-item"
+  }, "Sent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "dropdown-item"
+  }, "Drafts"))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Nav);
 
 /***/ }),
 

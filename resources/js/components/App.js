@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getAllProducers } from './components/producers/operations';
 import { getAllUnits } from './components/units/operations';
 import { getAllOperationsystem } from './components/operationsystem/operations';
+import Nav from './layout/nav'
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
 import { ToastContainer } from 'react-toastify';
@@ -27,6 +28,7 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem }) {
   return (
    <div>
      <Router>
+        <Nav />
         <Switch>
           <Route path="/nowe-urzadzenie">
             <CreateDevice />

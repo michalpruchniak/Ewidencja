@@ -9,10 +9,22 @@ class DevicesController extends Controller
 {
     public function storeDevice(Request $request){
         $device = Device::create([
+            'name' => $request->name,
             'set_id'  => intval($request->set),
             'network_type' => intval($request->network_type),
             'inventory' => $request->inventory,
-            'classification' => intval($request->classification)
+            'classification' => intval($request->classification),
+            'unit_id' => intval($request->unit_id),
+            'producers_id' => intval($request->producers_id),
+            'type_id' => intval($request->type_id),
+            'serial_number' => $request->serial_number,
+            'imei' => $request->imei,
+            'address_name' => $request->address_name,
+            'address_ip' => $request->address_ip,
+            'address_mac' => $request->address_mac,
+            'description' => $request->description,
+            'operation_system' => $request->operation_system,
+
         ]);
 
         return json_encode($device);

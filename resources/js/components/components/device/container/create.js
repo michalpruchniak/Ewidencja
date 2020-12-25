@@ -113,7 +113,7 @@ const createDevice = ({ units, types, producers,operationSystem }) => {
                 <div className="col-12 col-md-10">
                     <select name="operation_system" id="operation_system" className="form-control" ref={register({ required: true, min: 1 })}>
                         {operationSystem.list.map(system =>
-                            <option key={system.id} value={system.id}>{system.name}</option>
+                            <option key={system.id} value={system.name}>{system.name}</option>
                         )}
                     </select>
                     {errors.operation_system && (

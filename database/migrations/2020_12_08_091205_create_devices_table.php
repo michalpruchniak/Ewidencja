@@ -32,7 +32,7 @@ class CreateDevicesTable extends Migration
             $table->string('address_ip')->nullable();
             $table->string('address_mac')->nullable();
             $table->text('description')->nullable();
-            $table->string('operation_system')->nullabel();
+            $table->string('operation_system')->nullable();
             $table->timestamps();
         });
     }
