@@ -6,6 +6,7 @@ import { getAllOperationsystem } from './components/operationsystem/operations';
 import Nav from './layout/nav'
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
+import CreateHandoverProtocol from './components/handoverprotocol/container/create'
 import { ToastContainer } from 'react-toastify';
 import {
   HashRouter as Router,
@@ -35,6 +36,9 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem }) {
           </Route>
           <Route path="/nowy-producent">
             <CreateProducers />
+          </Route>
+          <Route path="/nowy-protokol-przekazania">
+            <CreateHandoverProtocol />
           </Route>
         </Switch>
      </Router>

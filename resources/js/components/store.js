@@ -7,6 +7,7 @@ import people from './components/people/reducer'
 import types from './components/types/reducer'
 import producers from './components/producers/reducer'
 import operationSystem from './components/operationsystem/reducer'
+import handoverProtocol from './components/handoverprotocol/reducer'
 
 
 
@@ -15,7 +16,8 @@ const reducers = combineReducers({
     people: people,
     types: types,
     producers: producers,
-    operationSystem: operationSystem
+    operationSystem: operationSystem,
+    handoverProtocol: handoverProtocol
 });
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
