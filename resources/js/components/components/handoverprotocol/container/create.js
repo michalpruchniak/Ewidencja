@@ -17,7 +17,7 @@ const createHandoverProtocol = ({ units, newprotocol }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(addNewwProtocol)}>
+        <form method= "post" onSubmit={handleSubmit(addNewwProtocol)}>
             <div className="row">
                 <div className="col-12 col-md-2">
                     <label htmlFor="name">Nadawca</label>

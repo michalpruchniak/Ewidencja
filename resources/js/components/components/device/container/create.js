@@ -3,14 +3,43 @@ import _ from "lodash/fp";
 import ReactDOM from "react-dom";
 import{ connect } from 'react-redux';
 import { useForm } from "react-hook-form";
-import storeDevice from "../storeDevice.js";
 import Error from '../../../alerts/error';
+import actions from '../actions'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const createDevice = ({ units, types, producers,operationSystem }) => {
+const createDevice = ({ units, types, producers,operationSystem, newDevice }) => {
     const { register, handleSubmit, errors } = useForm();
 
+    const storeDevice = async (values, e) => {
+        const API = axios.create({
+            baseURL: 'http://localhost:8000/devices',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+
+        });
+
+        try {
+            await API.post('store', values)
+                .then((res) => {
+                    toast.success('Producent został dodany poprawnie', {
+                        position: "bottom-left",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    newDevice(res.data);
+
+                });
+            e.target.reset();
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <form onSubmit={handleSubmit(storeDevice)}>
             <div className="row">
@@ -223,4 +252,8 @@ const mapStateToProps = state => ({
     producers: state.producers,
     operationSystem: state.operationSystem
 })
-export default connect(mapStateToProps)(createDevice)
+
+const mapDispatchToPtops = dispatch => ({
+    newDevice: device => dispatch(actions.add(device))
+});
+export default connect(mapStateToProps, mapDispatchToPtops)(createDevice)

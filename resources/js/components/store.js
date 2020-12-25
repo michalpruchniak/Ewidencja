@@ -8,10 +8,12 @@ import types from './components/types/reducer'
 import producers from './components/producers/reducer'
 import operationSystem from './components/operationsystem/reducer'
 import handoverProtocol from './components/handoverprotocol/reducer'
+import devices from './components/device/reducer';
 
 
 
 const reducers = combineReducers({
+    devices: devices,
     units: units,
     people: people,
     types: types,
