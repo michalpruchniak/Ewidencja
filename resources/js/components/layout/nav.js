@@ -12,6 +12,7 @@ const Nav = () => {
             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div className="navbar-nav">
                     <a href="#" className="nav-item nav-link active">Home</a>
+                    <Link to="/wszystkie-urzadzenia" className="nav-item nav-link active">Wszystkie urządzenia</Link>
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Nowy</a>
                         <div className="dropdown-menu">

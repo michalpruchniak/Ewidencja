@@ -8,6 +8,7 @@ import Nav from './layout/nav'
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
 import CreateHandoverProtocol from './components/handoverprotocol/container/create'
+import DevicesContainer from './components/device/container/list'
 import { ToastContainer } from 'react-toastify';
 import {
   HashRouter as Router,
@@ -40,6 +41,9 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevice
           </Route>
           <Route path="/nowy-protokol-przekazania">
             <CreateHandoverProtocol />
+          </Route>
+          <Route path="/wszystkie-urzadzenia">
+            <DevicesContainer />
           </Route>
         </Switch>
      </Router>
