@@ -7,6 +7,10 @@ use \App\Models\Device;
 
 class DevicesController extends Controller
 {
+    public function getAllDevices(){
+        $devices = Device::all();
+        return json_encode($devices);
+    }
     public function storeDevice(Request $request){
         $device = Device::create([
             'name' => $request->name,

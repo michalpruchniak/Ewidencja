@@ -1,6 +1,6 @@
 const INIT_DEVICES = {
     list: []
-};
+}
 
 const devices = (state = INIT_DEVICES, action) => {
     switch (action.type) {

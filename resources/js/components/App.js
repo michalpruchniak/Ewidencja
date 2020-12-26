@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getAllProducers } from './components/producers/operations';
 import { getAllUnits } from './components/units/operations';
 import { getAllOperationsystem } from './components/operationsystem/operations';
+import { getAllDevices } from './components/device/operations';
 import Nav from './layout/nav'
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
@@ -11,19 +12,19 @@ import { ToastContainer } from 'react-toastify';
 import {
   HashRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
 
 
 
-function App({ getAllProducers, getAllUnits, getAllOperationsystem }) {
+function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevices }) {
   useEffect(() => {
      getAllProducers(),
      getAllUnits(),
-     getAllOperationsystem()
+     getAllOperationsystem(),
+     getAllDevices()
   }, [])
 
   return (
@@ -61,6 +62,7 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem }) {
 const mapDispatchToProps = dispatch => ({
   getAllProducers: () => dispatch(getAllProducers()),
   getAllUnits: () => dispatch(getAllUnits()),
-  getAllOperationsystem: () => dispatch(getAllOperationsystem())
+  getAllOperationsystem: () => dispatch(getAllOperationsystem()),
+  getAllDevices: () => dispatch(getAllDevices())
 })
 export default connect(null, mapDispatchToProps)(App);
