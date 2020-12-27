@@ -13,7 +13,21 @@ const createHandoverProtocol = ({ units, newprotocol }) => {
     const { register, handleSubmit, errors } = useForm();
 
     const addNewProtocol = (e) => {
-        newprotocol(e);
+
+        try{
+            newprotocol(e);
+            toast.success('Protokół przekazania został utworzony', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        } catch(error){
+            console.log(error)
+        }
     }
 
     return (

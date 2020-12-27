@@ -81163,7 +81163,20 @@ var createHandoverProtocol = function createHandoverProtocol(_ref) {
       errors = _useForm.errors;
 
   var addNewProtocol = function addNewProtocol(e) {
-    newprotocol(e);
+    try {
+      newprotocol(e);
+      react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"].success('Protokół przekazania został utworzony', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -81300,15 +81313,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Panel = function Panel(_ref) {
-  var handoverProtocol = _ref.handoverProtocol;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, handoverProtocol.fromTo.map(function (element) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Z: ", element.from), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Do: ", element.to));
-  }));
+  var handoverProtocol = _ref.handoverProtocol,
+      units = _ref.units;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: "1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: "), units.list.map(function (unit) {
+    return unit.id == handoverProtocol.fromTo[0].from ? unit.name : '';
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: "2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), units.list.map(function (unit) {
+    return unit.id == handoverProtocol.fromTo[0].to ? unit.name : '';
+  })));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    handoverProtocol: state.handoverProtocol
+    handoverProtocol: state.handoverProtocol,
+    units: state.units
   };
 };
 
