@@ -29,7 +29,7 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevice
   }, [])
 
   return (
-   <div>
+   <React.Fragment>
      <Router>
         <Nav />
         <Switch>
@@ -59,7 +59,7 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevice
         draggable
         pauseOnHover
       />
-   </div>
+   </React.Fragment>
   );
 }
 

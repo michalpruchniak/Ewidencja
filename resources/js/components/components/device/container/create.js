@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import _ from "lodash/fp";
-import ReactDOM from "react-dom";
 import{ connect } from 'react-redux';
 import { useForm } from "react-hook-form";
 import Error from '../../../alerts/error';

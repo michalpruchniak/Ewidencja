@@ -1,20 +1,14 @@
 import React from 'react'
 import { connect} from 'react-redux'
+import Device from './device'
 
 const DevicesContainer = ({ devices }) => {
     return (
-        <div className="card">
+        <React.Fragment>
             {devices.list.map(device =>
-            <React.Fragment key={device.id}>
-                <div className="card-header">
-                    <b>{device.id}. {device.name}</b>
-                </div>
-                <div className="card-body">
-                    Hello
-                </div>
-            </React.Fragment>
+                <Device key={device.id} device={device} />
             )}
-        </div>
+        </React.Fragment>
     );
 }
 const mapStateToProps = state => ({

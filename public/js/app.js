@@ -80316,7 +80316,7 @@ function App(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     getAllProducers(), getAllUnits(), getAllOperationsystem(), getAllDevices();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["Route"], {
     path: "/nowe-urzadzenie"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__["Route"], {
     path: "/nowy-producent"
@@ -80449,21 +80449,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var lodash_fp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/fp */ "./node_modules/lodash/fp.js");
 /* harmony import */ var lodash_fp__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_fp__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
-/* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./resources/js/components/components/device/actions.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.js");
+/* harmony import */ var _alerts_error__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../alerts/error */ "./resources/js/components/alerts/error.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../actions */ "./resources/js/components/components/device/actions.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_8__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 
@@ -80481,7 +80478,7 @@ var createDevice = function createDevice(_ref) {
       operationSystem = _ref.operationSystem,
       newDevice = _ref.newDevice;
 
-  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_5__["useForm"])(),
+  var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_4__["useForm"])(),
       register = _useForm.register,
       handleSubmit = _useForm.handleSubmit,
       errors = _useForm.errors;
@@ -80502,7 +80499,7 @@ var createDevice = function createDevice(_ref) {
               _context.prev = 1;
               _context.next = 4;
               return API.post('store', values).then(function (res) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_8__["toast"].success('Producent został dodany poprawnie', {
+                react_toastify__WEBPACK_IMPORTED_MODULE_7__["toast"].success('Producent został dodany poprawnie', {
                   position: "bottom-left",
                   autoClose: 5000,
                   hideProgressBar: false,
@@ -80557,7 +80554,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 7,
       maxLength: 50
     })
-  }), errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owa nazwa"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80577,11 +80574,11 @@ var createDevice = function createDevice(_ref) {
       minLength: 5,
       maxLength: 40
     })
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_2___default.a.get("inventory.type", errors) === "required" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_2___default.a.get("inventory.type", errors) === "required" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Musisz poda\u0107 numer inwentarzowy"
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_2___default.a.get("inventory.type", errors) === "minLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_2___default.a.get("inventory.type", errors) === "minLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Numer inwentarzowy jest za kr\xF3tki"
-  }), lodash_fp__WEBPACK_IMPORTED_MODULE_2___default.a.get("inventory.type", errors) === "maxLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), lodash_fp__WEBPACK_IMPORTED_MODULE_2___default.a.get("inventory.type", errors) === "maxLength" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Numer inwentarzowy jest za d\u0142ugi"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80606,7 +80603,7 @@ var createDevice = function createDevice(_ref) {
     value: "3"
   }, "Zwr\xF3cony"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
     value: "9"
-  }, "Wybrakowany")), errors.classification && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, "Wybrakowany")), errors.classification && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy status"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80662,7 +80659,7 @@ var createDevice = function createDevice(_ref) {
       key: unit.id,
       value: unit.id
     }, unit.name);
-  })), errors.unit_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })), errors.unit_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owa jednostka"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80685,7 +80682,7 @@ var createDevice = function createDevice(_ref) {
       key: producer.id,
       value: producer.id
     }, producer.name);
-  })), errors.producers_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })), errors.producers_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy producent"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80708,7 +80705,7 @@ var createDevice = function createDevice(_ref) {
       key: system.id,
       value: system.name
     }, system.name);
-  })), errors.operation_system && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })), errors.operation_system && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy system operacyjny"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80737,7 +80734,7 @@ var createDevice = function createDevice(_ref) {
         key: element.id
       }, element.name);
     }));
-  })), errors.type_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })), errors.type_id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy typ urz\u0105dzenia"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80757,7 +80754,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 5,
       maxLength: 45
     })
-  }), errors.serial_number && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.serial_number && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy numer seryjny"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80777,7 +80774,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 2,
       maxLength: 35
     })
-  }), errors.imei && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.imei && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy IMEI"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80797,7 +80794,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 2,
       maxLength: 45
     })
-  }), errors.address_name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.address_name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy adres"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80817,7 +80814,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 7,
       maxLength: 15
     })
-  }), errors.address_ip && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.address_ip && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy adres IP"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80837,7 +80834,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 7,
       maxLength: 45
     })
-  }), errors.address_mac && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.address_mac && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy adres MAC"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -80856,7 +80853,7 @@ var createDevice = function createDevice(_ref) {
       minLength: 3,
       maxLength: 400
     })
-  }), errors.description && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), errors.description && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy opis"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "submit",
@@ -80876,12 +80873,48 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToPtops = function mapDispatchToPtops(dispatch) {
   return {
     newDevice: function newDevice(device) {
-      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_7__["default"].add(device));
+      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_6__["default"].add(device));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToPtops)(createDevice));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToPtops)(createDevice));
+
+/***/ }),
+
+/***/ "./resources/js/components/components/device/container/device.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/components/device/container/device.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Device = function Device(_ref) {
+  var device = _ref.device;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, device.id, ". ", device.name, " / ", device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-7"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-5"
+  }, "Dodaj do dok. przekazania"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Device);
 
 /***/ }),
 
@@ -80897,21 +80930,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _device__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./device */ "./resources/js/components/components/device/container/device.js");
+
 
 
 
 var DevicesContainer = function DevicesContainer(_ref) {
   var devices = _ref.devices;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card"
-  }, devices.list.map(function (device) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
-      key: device.id
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "card-header"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, device.id, ". ", device.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "card-body"
-    }, "Hello"));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, devices.list.map(function (device) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: device.id,
+      device: device
+    });
   }));
 };
 
