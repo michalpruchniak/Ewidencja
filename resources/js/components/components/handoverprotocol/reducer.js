@@ -15,6 +15,11 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
                 fromTo: [...state.fromTo],
                 list: [...state.list, action.item]
             }
+        case 'RESET_HANDOVER_PROTOCOL':
+            return {
+                fromTo: [],
+                list: []
+            }
         default:
             return state
     }

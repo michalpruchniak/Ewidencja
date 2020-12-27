@@ -12,12 +12,12 @@ const createHandoverProtocol = ({ units, newprotocol }) => {
     useEffect(() => {getAllUnits()}, [])
     const { register, handleSubmit, errors } = useForm();
 
-    const addNewwProtocol = (e) => {
+    const addNewProtocol = (e) => {
         newprotocol(e);
     }
 
     return (
-        <form method= "post" onSubmit={handleSubmit(addNewwProtocol)}>
+        <form method= "post" onSubmit={handleSubmit(addNewProtocol)}>
             <div className="row">
                 <div className="col-12 col-md-2">
                     <label htmlFor="name">Nadawca</label>

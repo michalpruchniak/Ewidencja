@@ -9,6 +9,7 @@ import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
 import CreateHandoverProtocol from './components/handoverprotocol/container/create'
 import DevicesContainer from './components/device/container/list'
+import ProtocolPanel from './components/handoverprotocol/container/panel'
 import { ToastContainer } from 'react-toastify';
 import {
   HashRouter as Router,
@@ -30,6 +31,7 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevice
 
   return (
    <React.Fragment>
+     <ProtocolPanel />
      <Router>
         <Nav />
         <Switch>
