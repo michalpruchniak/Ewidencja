@@ -51,6 +51,7 @@ const Device = ({device, addDevice, handoverProtocol}) => {
                                 <tr>
                                     <td><b>Numer inwentarzowy</b></td>
                                     <td>{device.inventory}</td>
+                                    <td>Unit: {device.unit_id}</td>
                                 </tr>
                                 <tr>
                                     <td><b>Cena zakupu</b></td>
