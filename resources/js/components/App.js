@@ -10,6 +10,7 @@ import CreateProducers from './components/producers/container/create'
 import CreateHandoverProtocol from './components/handoverprotocol/container/create'
 import DevicesContainer from './components/device/container/list'
 import ProtocolPanel from './components/handoverprotocol/container/panel'
+import HandoverprotocolList from './components/handoverprotocol/container/index'
 import { ToastContainer } from 'react-toastify';
 import {
   HashRouter as Router,
@@ -46,6 +47,9 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevice
           </Route>
           <Route path="/wszystkie-urzadzenia">
             <DevicesContainer />
+          </Route>
+          <Route path="/protokol-przekazania">
+            <HandoverprotocolList />
           </Route>
         </Switch>
      </Router>
