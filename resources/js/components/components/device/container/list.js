@@ -14,4 +14,5 @@ const DevicesContainer = ({ devices }) => {
 const mapStateToProps = state => ({
     devices: state.devices
 })
+
 export default connect(mapStateToProps, null)(DevicesContainer);

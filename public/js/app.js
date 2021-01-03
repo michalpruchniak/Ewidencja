@@ -80893,30 +80893,93 @@ var mapDispatchToPtops = function mapDispatchToPtops(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../handoverprotocol/actions */ "./resources/js/components/components/handoverprotocol/actions.js");
+/* harmony import */ var _velidateDevice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../velidateDevice */ "./resources/js/components/components/device/velidateDevice.js");
+
+
+
+
+
+
 
 
 var Device = function Device(_ref) {
-  var device = _ref.device;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  var device = _ref.device,
+      addDevice = _ref.addDevice,
+      handoverProtocol = _ref.handoverProtocol;
+
+  function addDeviceToProtocol(e) {
+    e.preventDefault();
+    var validate = Object(_velidateDevice__WEBPACK_IMPORTED_MODULE_6__["default"])(device, handoverProtocol);
+
+    if (validate.flag == 1) {
+      addDevice(device);
+      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success('Urządzenie zostało dodane', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+    } else {
+      console.log(validate.msg);
+      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error(validate.msg, {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, device.id, ". ", device.name, " / ", device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, device.id, ". ", device.name, " / ", device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-7"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-5"
-  }, "Dodaj do dok. przekazania"))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+    href: "#",
+    onClick: addDeviceToProtocol
+  }, "Dodaj do dok. przekazania")))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Device);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    handoverProtocol: state.handoverProtocol
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    addDevice: function addDevice(device) {
+      return dispatch(_handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_5__["default"].addDevice(device));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Device));
 
 /***/ }),
 
@@ -81086,6 +81149,40 @@ var devices = function devices() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (devices);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/device/velidateDevice.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/components/device/velidateDevice.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var validateDevice = function validateDevice(device, protocol) {
+  var validate = {
+    flag: 1,
+    msg: ''
+  };
+
+  if (protocol.list.find(function (x) {
+    return x.id == device.id;
+  })) {
+    validate.flag = 0;
+    validate.msg = 'To urządzenie zostało już dodane';
+  }
+
+  if (protocol.fromTo.length < 1) {
+    validate.flag = 0;
+    validate.msg = "Najpierw musisz stworzyć protokół przekazania";
+  }
+
+  return validate;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (validateDevice);
 
 /***/ }),
 
@@ -81317,13 +81414,15 @@ var Panel = function Panel(_ref) {
       units = _ref.units;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: "), units.list.map(function (unit) {
-    return unit.id == handoverProtocol.fromTo[0].from ? unit.name : '';
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: "), units.list.find(function (x) {
+    return x.id == handoverProtocol.fromTo[0].from;
+  }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: "2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), units.list.map(function (unit) {
-    return unit.id == handoverProtocol.fromTo[0].to ? unit.name : '';
-  })));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), units.list.find(function (x) {
+    return x.id == handoverProtocol.fromTo[0].to;
+  }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: "3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "liczba element\xF3w:"), handoverProtocol.list.length));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
