@@ -9,7 +9,12 @@ import validateDevice from '../velidateDevice'
 
 
 const Device = ({device, addDevice, handoverProtocol}) => {
-
+    const [flag, setFlag] = useState(0);
+    useEffect(() => {
+        if(handoverProtocol.fromTo.length > 0){
+            setFlag(validateDevice(device, handoverProtocol).flag);
+        }
+    });
     function addDeviceToProtocol (e) {
         e.preventDefault();
         const validate = validateDevice(device, handoverProtocol)
@@ -25,7 +30,6 @@ const Device = ({device, addDevice, handoverProtocol}) => {
                 progress: undefined,
             });
         } else {
-            console.log(validate.msg);
             toast.error(validate.msg, {
                 position: "bottom-left",
                 autoClose: 5000,
@@ -63,7 +67,10 @@ const Device = ({device, addDevice, handoverProtocol}) => {
                         </table>
                     </div>
                     <div className="col-5">
-                        <a href="#" onClick={addDeviceToProtocol}>Dodaj do dok. przekazania</a>
+                        {flag === 1 ?
+                            <a href="#" onClick={addDeviceToProtocol}>Dodaj do dok. przekazania</a> :
+                            <span>Dodaj do dok. przekazania</span>
+                        }
                     </div>
                 </div>
             </div>
