@@ -8,7 +8,7 @@ const Protocol = ({ handoverProtocol }) => {
     if(handoverProtocol.fromTo.length > 0){
         return <List />
     } else {
-        return <Error alert="To nie zadziała" />
+        return <Error alert="Protokół przekazania nie został utworzony" />
     }
 }
 
