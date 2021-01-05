@@ -22,13 +22,7 @@ import {
 
 
 
-function Evidence({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevices }) {
-    useEffect(() => {
-        getAllProducers(),
-            getAllUnits(),
-            getAllOperationsystem(),
-            getAllDevices()
-    }, [])
+function Evidence() {
     return (
         <React.Fragment>
             <ProtocolPanel />
@@ -68,10 +62,5 @@ function Evidence({ getAllProducers, getAllUnits, getAllOperationsystem, getAllD
     );
 }
 
-const mapDispatchToProps = dispatch => ({
-    getAllProducers: () => dispatch(getAllProducers()),
-    getAllUnits: () => dispatch(getAllUnits()),
-    getAllOperationsystem: () => dispatch(getAllOperationsystem()),
-    getAllDevices: () => dispatch(getAllDevices())
-})
-export default connect(null, mapDispatchToProps)(Evidence);
+
+export default Evidence;

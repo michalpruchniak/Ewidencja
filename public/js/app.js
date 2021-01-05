@@ -80282,7 +80282,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Evidence__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Evidence */ "./resources/js/components/Evidence.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _components_producers_operations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/producers/operations */ "./resources/js/components/components/producers/operations.js");
+/* harmony import */ var _components_units_operations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/units/operations */ "./resources/js/components/components/units/operations.js");
+/* harmony import */ var _components_operationsystem_operations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/operationsystem/operations */ "./resources/js/components/components/operationsystem/operations.js");
+/* harmony import */ var _components_device_operations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/device/operations */ "./resources/js/components/components/device/operations.js");
+/* harmony import */ var _Evidence__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Evidence */ "./resources/js/components/Evidence.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -80298,19 +80303,49 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function App() {
+
+
+
+
+
+function App(_ref) {
+  var getAllProducers = _ref.getAllProducers,
+      getAllUnits = _ref.getAllUnits,
+      getAllOperationsystem = _ref.getAllOperationsystem,
+      getAllDevices = _ref.getAllDevices;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState2 = _slicedToArray(_useState, 2),
       isLoaded = _useState2[0],
       setIsLoaded = _useState2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    setIsLoaded(false);
-  });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evidence__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+    getAllProducers(), getAllUnits(), getAllOperationsystem(), getAllDevices();
+    setTimeout(function () {
+      return setIsLoaded(false);
+    }, 1500);
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evidence__WEBPACK_IMPORTED_MODULE_6__["default"], null));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    getAllProducers: function getAllProducers() {
+      return dispatch(Object(_components_producers_operations__WEBPACK_IMPORTED_MODULE_2__["getAllProducers"])());
+    },
+    getAllUnits: function getAllUnits() {
+      return dispatch(Object(_components_units_operations__WEBPACK_IMPORTED_MODULE_3__["getAllUnits"])());
+    },
+    getAllOperationsystem: function getAllOperationsystem() {
+      return dispatch(Object(_components_operationsystem_operations__WEBPACK_IMPORTED_MODULE_4__["getAllOperationsystem"])());
+    },
+    getAllDevices: function getAllDevices() {
+      return dispatch(Object(_components_device_operations__WEBPACK_IMPORTED_MODULE_5__["getAllDevices"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(App));
 
 /***/ }),
 
@@ -80355,14 +80390,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Evidence(_ref) {
-  var getAllProducers = _ref.getAllProducers,
-      getAllUnits = _ref.getAllUnits,
-      getAllOperationsystem = _ref.getAllOperationsystem,
-      getAllDevices = _ref.getAllDevices;
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    getAllProducers(), getAllUnits(), getAllOperationsystem(), getAllDevices();
-  }, []);
+function Evidence() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
     path: "/nowe-urzadzenie"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
@@ -80386,24 +80414,7 @@ function Evidence(_ref) {
   }));
 }
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    getAllProducers: function getAllProducers() {
-      return dispatch(Object(_components_producers_operations__WEBPACK_IMPORTED_MODULE_2__["getAllProducers"])());
-    },
-    getAllUnits: function getAllUnits() {
-      return dispatch(Object(_components_units_operations__WEBPACK_IMPORTED_MODULE_3__["getAllUnits"])());
-    },
-    getAllOperationsystem: function getAllOperationsystem() {
-      return dispatch(Object(_components_operationsystem_operations__WEBPACK_IMPORTED_MODULE_4__["getAllOperationsystem"])());
-    },
-    getAllDevices: function getAllDevices() {
-      return dispatch(Object(_components_device_operations__WEBPACK_IMPORTED_MODULE_5__["getAllDevices"])());
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(Evidence));
+/* harmony default export */ __webpack_exports__["default"] = (Evidence);
 
 /***/ }),
 
