@@ -1,9 +1,5 @@
 import React, { useEffect} from 'react';
-import { connect } from 'react-redux';
-import { getAllProducers } from './components/producers/operations';
-import { getAllUnits } from './components/units/operations';
-import { getAllOperationsystem } from './components/operationsystem/operations';
-import { getAllDevices } from './components/device/operations';
+
 import Nav from './layout/nav'
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'

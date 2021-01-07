@@ -80360,25 +80360,15 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _components_producers_operations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/producers/operations */ "./resources/js/components/components/producers/operations.js");
-/* harmony import */ var _components_units_operations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/units/operations */ "./resources/js/components/components/units/operations.js");
-/* harmony import */ var _components_operationsystem_operations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/operationsystem/operations */ "./resources/js/components/components/operationsystem/operations.js");
-/* harmony import */ var _components_device_operations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/device/operations */ "./resources/js/components/components/device/operations.js");
-/* harmony import */ var _layout_nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./layout/nav */ "./resources/js/components/layout/nav.js");
-/* harmony import */ var _components_device_container_create__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/device/container/create */ "./resources/js/components/components/device/container/create.js");
-/* harmony import */ var _components_producers_container_create__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/producers/container/create */ "./resources/js/components/components/producers/container/create.js");
-/* harmony import */ var _components_handoverprotocol_container_create__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/handoverprotocol/container/create */ "./resources/js/components/components/handoverprotocol/container/create.js");
-/* harmony import */ var _components_device_container_list__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/device/container/list */ "./resources/js/components/components/device/container/list.js");
-/* harmony import */ var _components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/handoverprotocol/container/panel */ "./resources/js/components/components/handoverprotocol/container/panel.js");
-/* harmony import */ var _components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/handoverprotocol/container/index */ "./resources/js/components/components/handoverprotocol/container/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
-
-
-
-
+/* harmony import */ var _layout_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layout/nav */ "./resources/js/components/layout/nav.js");
+/* harmony import */ var _components_device_container_create__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/device/container/create */ "./resources/js/components/components/device/container/create.js");
+/* harmony import */ var _components_producers_container_create__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/producers/container/create */ "./resources/js/components/components/producers/container/create.js");
+/* harmony import */ var _components_handoverprotocol_container_create__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/handoverprotocol/container/create */ "./resources/js/components/components/handoverprotocol/container/create.js");
+/* harmony import */ var _components_device_container_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/device/container/list */ "./resources/js/components/components/device/container/list.js");
+/* harmony import */ var _components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/handoverprotocol/container/panel */ "./resources/js/components/components/handoverprotocol/container/panel.js");
+/* harmony import */ var _components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/handoverprotocol/container/index */ "./resources/js/components/components/handoverprotocol/container/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -80391,17 +80381,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Evidence() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/nowe-urzadzenie"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/nowy-producent"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_producers_container_create__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_producers_container_create__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/nowy-protokol-przekazania"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_create__WEBPACK_IMPORTED_MODULE_9__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_create__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/wszystkie-urzadzenia"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_list__WEBPACK_IMPORTED_MODULE_10__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_14__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_list__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__["Route"], {
     path: "/protokol-przekazania"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_12__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_13__["ToastContainer"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_7__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_8__["ToastContainer"], {
     position: "bottom-left",
     autoClose: 5000,
     hideProgressBar: false,
@@ -81091,44 +81081,112 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var perSite = 10;
 
 var DevicesContainer = function DevicesContainer(_ref) {
-  var devices = _ref.devices;
+  var devices = _ref.devices,
+      units = _ref.units;
+  var inputName = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var inputUnit = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(2),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
-      pageNumber = _useState2[0],
-      setPageNumber = _useState2[1];
+      isLoaded = _useState2[0],
+      setIsLoaded = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(10),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(devices.list),
       _useState4 = _slicedToArray(_useState3, 2),
-      perSite = _useState4[0],
-      setPerSite = _useState4[1];
+      allItems = _useState4[0],
+      setAllItems = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(devices.list.length),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(1),
       _useState6 = _slicedToArray(_useState5, 2),
-      totalItems = _useState6[0],
-      setTotalItems = _useState6[1];
+      pageNumber = _useState6[0],
+      setPageNumber = _useState6[1];
 
+  var totalItems = allItems.length;
   var from = (pageNumber - 1) * perSite;
   var to = (pageNumber - 1) * perSite + perSite;
-  var countSites = Math.ceil(totalItems / perSite);
   var pages = Math.ceil(totalItems / perSite);
+
+  var handlePageClick = function handlePageClick(i) {
+    setPageNumber(i);
+  };
+
+  var search = function search(e) {
+    e.preventDefault();
+    setIsLoaded(true);
+    var name = inputName.current.value;
+    var unit = parseInt(inputUnit.current.value);
+    console.log(unit);
+    var tmp = devices.list;
+    setTimeout(function () {
+      tmp = tmp.filter(function (x) {
+        if (name) {
+          return x.name.includes(name.trim());
+        } else {
+          return x;
+        }
+      }).filter(function (x) {
+        if (unit) {
+          return x.unit_id === unit;
+        } else {
+          return x;
+        }
+      });
+      setPageNumber(1);
+      setAllItems(tmp);
+      setIsLoaded(false);
+    }, 400);
+  };
 
   var Pagination = function Pagination(_ref2) {
     var pages = _ref2.pages;
     var list = [];
 
-    for (var i = 1; i <= pages; i++) {
+    var _loop = function _loop(i) {
       list.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        key: i
+        key: i,
+        onClick: function onClick() {
+          return handlePageClick(i);
+        }
       }, i));
+    };
+
+    for (var i = 1; i <= pages; i++) {
+      _loop(i);
     }
 
     return list;
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, devices.list.slice(from, to).map(function (device) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: search
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "Nazwa",
+    className: "form-control",
+    ref: inputName
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control",
+    ref: inputUnit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Wszystkie"), units.list.map(function (unit) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: unit.id,
+      value: unit.id
+    }, unit.name);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Szukaj")))), isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : '', allItems.slice(from, to).map(function (device) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: device.id,
       device: device
@@ -81142,7 +81200,8 @@ var DevicesContainer = function DevicesContainer(_ref) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    devices: state.devices
+    devices: state.devices,
+    units: state.units
   };
 };
 
