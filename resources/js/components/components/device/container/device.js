@@ -43,7 +43,7 @@ const Device = ({device, addDevice, handoverProtocol}) => {
     }
 
     return (
-        <div className="card">
+        <div className="card break-15">
             <div className="card-header">
                 <b>{device.id}. {device.name} / {device.inventory}</b>
             </div>

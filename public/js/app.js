@@ -81016,7 +81016,7 @@ var Device = function Device(_ref) {
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "card"
+    className: "card break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, device.id, ". ", device.name, " / ", device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -81085,9 +81085,15 @@ var perSite = 10;
 
 var DevicesContainer = function DevicesContainer(_ref) {
   var devices = _ref.devices,
-      units = _ref.units;
+      units = _ref.units,
+      producers = _ref.producers,
+      types = _ref.types;
   var inputName = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
   var inputUnit = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var inputStatus = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var inputProducent = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var inputInventory = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
+  var inputType = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])('');
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -81118,7 +81124,10 @@ var DevicesContainer = function DevicesContainer(_ref) {
     setIsLoaded(true);
     var name = inputName.current.value;
     var unit = parseInt(inputUnit.current.value);
-    console.log(unit);
+    var status = parseInt(inputStatus.current.value);
+    var producent = parseInt(inputProducent.current.value);
+    var inventory = inputInventory.current.value;
+    var type = parseInt(inputType.current.value);
     var tmp = devices.list;
     setTimeout(function () {
       tmp = tmp.filter(function (x) {
@@ -81130,6 +81139,30 @@ var DevicesContainer = function DevicesContainer(_ref) {
       }).filter(function (x) {
         if (unit) {
           return x.unit_id === unit;
+        } else {
+          return x;
+        }
+      }).filter(function (x) {
+        if (status) {
+          return x.status === status;
+        } else {
+          return x;
+        }
+      }).filter(function (x) {
+        if (producent) {
+          return x.producers_id === producent;
+        } else {
+          return x;
+        }
+      }).filter(function (x) {
+        if (inventory) {
+          return x.inventory.includes(inventory.trim());
+        } else {
+          return x;
+        }
+      }).filter(function (x) {
+        if (type) {
+          return x.type_id === type;
         } else {
           return x;
         }
@@ -81165,15 +81198,33 @@ var DevicesContainer = function DevicesContainer(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "col-12 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Wynik\xF3w:"), " ", totalItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "name"
+  }, "Nazwa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: "name",
     type: "text",
     placeholder: "Nazwa",
     className: "form-control",
     ref: inputName
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "col-12 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inventory"
+  }, "Numer inventarzowy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: "inventory",
+    type: "text",
+    placeholder: "Numer inwentarzoy",
+    className: "form-control",
+    ref: inputInventory
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-6 col-lg-3 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "units"
+  }, "Jednostki"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "units",
     className: "form-control",
     ref: inputUnit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Wszystkie"), units.list.map(function (unit) {
@@ -81182,11 +81233,55 @@ var DevicesContainer = function DevicesContainer(_ref) {
       value: unit.id
     }, unit.name);
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-12"
+    className: "col-12 col-md-6 col-lg-3 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "producers"
+  }, "Producenci"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "producers",
+    className: "form-control",
+    ref: inputProducent
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Producent"), producers.list.map(function (producent) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: producent.id,
+      value: producent.id
+    }, producent.name);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-6 col-lg-3 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "types"
+  }, "Typ"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "types",
+    className: "form-control",
+    ref: inputType
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Typ"), types.list.map(function (type) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("optgroup", {
+      key: type.id,
+      label: type.name
+    }, type.child && type.child.length && type.child.map(function (element) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: element.id,
+        key: element.id
+      }, element.name);
+    }));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 col-md-6 col-lg-3 break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "form-control",
+    ref: inputStatus
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "Aktywny"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "Zablokowany"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "Zwr\xF3cony"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "4"
+  }, "Wybrakowany"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary"
-  }, "Szukaj")))), isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : '', allItems.slice(from, to).map(function (device) {
+  }, "Szukaj")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : '', allItems.slice(from, to).map(function (device) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: device.id,
       device: device
@@ -81201,7 +81296,9 @@ var DevicesContainer = function DevicesContainer(_ref) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     devices: state.devices,
-    units: state.units
+    units: state.units,
+    producers: state.producers,
+    types: state.types
   };
 };
 
