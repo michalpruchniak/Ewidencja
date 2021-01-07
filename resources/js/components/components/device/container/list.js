@@ -107,7 +107,8 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
                             </select>
                         </div>
                         <div className="col-12 col-md-6 col-lg-3 break-15">
-                            <select className="form-control" ref={inputStatus}>
+                            <label for="status">Status</label>
+                            <select id="status" className="form-control" ref={inputStatus}>
                                     <option>Status</option>
                                     <option value="1">Aktywny</option>
                                     <option value="2">Zablokowany</option>
