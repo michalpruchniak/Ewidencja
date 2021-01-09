@@ -81561,9 +81561,16 @@ var newprotocol = function newprotocol(item) {
   };
 };
 
+var reset = function reset() {
+  return {
+    type: 'RESET_HANDOVER_PROTOCOL'
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   addDevice: addDevice,
-  newprotocol: newprotocol
+  newprotocol: newprotocol,
+  reset: reset
 });
 
 /***/ }),
@@ -81744,14 +81751,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _device_container_device__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../device/container/device */ "./resources/js/components/components/device/container/device.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions */ "./resources/js/components/components/handoverprotocol/actions.js");
+/* harmony import */ var _device_container_device__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../device/container/device */ "./resources/js/components/components/device/container/device.js");
+
 
 
 
 
 var List = function List(_ref) {
   var handoverProtocol = _ref.handoverProtocol,
-      units = _ref.units;
+      units = _ref.units,
+      reset = _ref.reset;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81770,16 +81780,25 @@ var List = function List(_ref) {
     return x.id == handoverProtocol.fromTo[0].to;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Urz\u0105dzenia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Urz\u0105dzenia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12"
   }, handoverProtocol.list.map(function (device) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device_container_device__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device_container_device__WEBPACK_IMPORTED_MODULE_3__["default"], {
       key: device.id,
       device: device
     });
-  }))));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "btn btn-danger",
+    onClick: function onClick() {
+      return reset();
+    }
+  }, "Usu\u0144 protok\xF3\u0142 przekazania"))));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -81789,7 +81808,15 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(List));
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    reset: function reset() {
+      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_2__["default"].reset());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(List));
 
 /***/ }),
 
