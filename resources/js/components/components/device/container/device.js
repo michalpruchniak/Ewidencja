@@ -1,46 +1,21 @@
-import { map } from 'lodash';
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+
 
 import actions from '../../handoverprotocol/actions'
 import validateDevice from '../velidateDevice'
+import MenuList from './menuList'
+import MenuProtocol from './menuProtocol'
 
 
-const Device = ({device, addDevice, handoverProtocol}) => {
+const Device = ({device, type, addDevice, handoverProtocol}) => {
     const [flag, setFlag] = useState(0);
     useEffect(() => {
         if(handoverProtocol.fromTo.length > 0){
             setFlag(validateDevice(device, handoverProtocol).flag);
         }
     });
-    function addDeviceToProtocol (e) {
-        e.preventDefault();
-        const validate = validateDevice(device, handoverProtocol)
-        if (validate.flag == 1) {
-            addDevice(device);
-            toast.success('Urządzenie zostało dodane', {
-                position: "bottom-left",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        } else {
-            toast.error(validate.msg, {
-                position: "bottom-left",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        }
-    }
+
 
     return (
         <div className="card break-15">
@@ -67,10 +42,12 @@ const Device = ({device, addDevice, handoverProtocol}) => {
                         </table>
                     </div>
                     <div className="col-5">
-                        {flag === 1 ?
-                            <a href="#" onClick={addDeviceToProtocol}>Dodaj do dok. przekazania</a> :
-                            <span>Dodaj do dok. przekazania</span>
-                        }
+                        {type === "list" ? <MenuList flag={flag}
+                                            device={device}
+                                            addDevice={addDevice}
+                                            handoverProtocol={handoverProtocol}
+                                            />
+                                         : <MenuProtocol />}
                     </div>
                 </div>
             </div>

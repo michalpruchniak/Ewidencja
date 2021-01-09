@@ -80941,16 +80941,13 @@ var mapDispatchToPtops = function mapDispatchToPtops(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../handoverprotocol/actions */ "./resources/js/components/components/handoverprotocol/actions.js");
-/* harmony import */ var _velidateDevice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../velidateDevice */ "./resources/js/components/components/device/velidateDevice.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../handoverprotocol/actions */ "./resources/js/components/components/handoverprotocol/actions.js");
+/* harmony import */ var _velidateDevice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../velidateDevice */ "./resources/js/components/components/device/velidateDevice.js");
+/* harmony import */ var _menuList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./menuList */ "./resources/js/components/components/device/container/menuList.js");
+/* harmony import */ var _menuProtocol__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./menuProtocol */ "./resources/js/components/components/device/container/menuProtocol.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -80970,69 +80967,42 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var Device = function Device(_ref) {
   var device = _ref.device,
+      type = _ref.type,
       addDevice = _ref.addDevice,
       handoverProtocol = _ref.handoverProtocol;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(0),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
       _useState2 = _slicedToArray(_useState, 2),
       flag = _useState2[0],
       setFlag = _useState2[1];
 
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (handoverProtocol.fromTo.length > 0) {
-      setFlag(Object(_velidateDevice__WEBPACK_IMPORTED_MODULE_6__["default"])(device, handoverProtocol).flag);
+      setFlag(Object(_velidateDevice__WEBPACK_IMPORTED_MODULE_3__["default"])(device, handoverProtocol).flag);
     }
   });
-
-  function addDeviceToProtocol(e) {
-    e.preventDefault();
-    var validate = Object(_velidateDevice__WEBPACK_IMPORTED_MODULE_6__["default"])(device, handoverProtocol);
-
-    if (validate.flag == 1) {
-      addDevice(device);
-      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].success('Urządzenie zostało dodane', {
-        position: "bottom-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined
-      });
-    } else {
-      react_toastify__WEBPACK_IMPORTED_MODULE_3__["toast"].error(validate.msg, {
-        position: "bottom-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined
-      });
-    }
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card break-15"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, device.id, ". ", device.name, " / ", device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, device.id, ". ", device.name, " / ", device.inventory)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-7"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, device.inventory), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, "Unit: ", device.unit_id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.inventory), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Unit: ", device.unit_id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-5"
-  }, flag === 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
-    href: "#",
-    onClick: addDeviceToProtocol
-  }, "Dodaj do dok. przekazania") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Dodaj do dok. przekazania")))));
+  }, type === "list" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_menuList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    flag: flag,
+    device: device,
+    addDevice: addDevice,
+    handoverProtocol: handoverProtocol
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_menuProtocol__WEBPACK_IMPORTED_MODULE_5__["default"], null)))));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -81044,12 +81014,12 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     addDevice: function addDevice(device) {
-      return dispatch(_handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_5__["default"].addDevice(device));
+      return dispatch(_handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_2__["default"].addDevice(device));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Device));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Device));
 
 /***/ }),
 
@@ -81202,7 +81172,7 @@ var DevicesContainer = function DevicesContainer(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Wynik\xF3w:"), " ", totalItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "name"
+    htmlFor: "name"
   }, "Nazwa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: "name",
     type: "text",
@@ -81212,7 +81182,7 @@ var DevicesContainer = function DevicesContainer(_ref) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inventory"
+    htmlFor: "inventory"
   }, "Numer inventarzowy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: "inventory",
     type: "text",
@@ -81222,7 +81192,7 @@ var DevicesContainer = function DevicesContainer(_ref) {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 col-md-6 col-lg-3 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "units"
+    htmlFor: "units"
   }, "Jednostki"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     id: "units",
     className: "form-control",
@@ -81235,7 +81205,7 @@ var DevicesContainer = function DevicesContainer(_ref) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 col-md-6 col-lg-3 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "producers"
+    htmlFor: "producers"
   }, "Producenci"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     id: "producers",
     className: "form-control",
@@ -81248,7 +81218,7 @@ var DevicesContainer = function DevicesContainer(_ref) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 col-md-6 col-lg-3 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "types"
+    htmlFor: "types"
   }, "Typ"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     id: "types",
     className: "form-control",
@@ -81266,7 +81236,7 @@ var DevicesContainer = function DevicesContainer(_ref) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 col-md-6 col-lg-3 break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "status"
+    htmlFor: "status"
   }, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     id: "status",
     className: "form-control",
@@ -81287,7 +81257,8 @@ var DevicesContainer = function DevicesContainer(_ref) {
   }, "Szukaj")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : '', allItems.slice(from, to).map(function (device) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: device.id,
-      device: device
+      device: device,
+      type: "list"
     });
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
@@ -81306,6 +81277,93 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(DevicesContainer));
+
+/***/ }),
+
+/***/ "./resources/js/components/components/device/container/menuList.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/components/device/container/menuList.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _velidateDevice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../velidateDevice */ "./resources/js/components/components/device/velidateDevice.js");
+
+
+
+
+
+var MenuList = function MenuList(_ref) {
+  var flag = _ref.flag,
+      addDevice = _ref.addDevice,
+      device = _ref.device,
+      handoverProtocol = _ref.handoverProtocol;
+
+  function addDeviceToProtocol(e) {
+    e.preventDefault();
+    var validate = Object(_velidateDevice__WEBPACK_IMPORTED_MODULE_3__["default"])(device, handoverProtocol);
+
+    if (validate.flag == 1) {
+      addDevice(device);
+      react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].success('Urządzenie zostało dodane', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+    } else {
+      react_toastify__WEBPACK_IMPORTED_MODULE_1__["toast"].error(validate.msg, {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, flag === 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    onClick: addDeviceToProtocol
+  }, "Dodaj do dok. przekazania") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Dodaj do dok. przekazania"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MenuList);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/device/container/menuProtocol.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/components/device/container/menuProtocol.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var MenuProtocol = function MenuProtocol() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#"
+  }, "Usu\u0144"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MenuProtocol);
 
 /***/ }),
 
@@ -81686,6 +81744,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _device_container_device__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../device/container/device */ "./resources/js/components/components/device/container/device.js");
+
 
 
 
@@ -81708,7 +81768,18 @@ var List = function List(_ref) {
     className: "col-8 col-md-10"
   }, units.list.find(function (x) {
     return x.id == handoverProtocol.fromTo[0].to;
-  }).name)));
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Urz\u0105dzenia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, handoverProtocol.list.map(function (device) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_device_container_device__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: device.id,
+      device: device
+    });
+  }))));
 };
 
 var mapStateToProps = function mapStateToProps(state) {

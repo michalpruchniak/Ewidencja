@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { connect} from 'react-redux'
 import Device from './device'
 
@@ -65,16 +65,16 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
                     <div className="row">
                     <div className="col-12 break-15"><b>Wyników:</b> {totalItems}</div>
                         <div className="col-12 break-15">
-                            <label for="name">Nazwa</label>
+                            <label htmlFor="name">Nazwa</label>
                             <input id="name" type="text" placeholder="Nazwa" className="form-control" ref={inputName} />
                         </div>
 
                         <div className="col-12 break-15">
-                            <label for="inventory">Numer inventarzowy</label>
+                            <label htmlFor="inventory">Numer inventarzowy</label>
                             <input id="inventory" type="text" placeholder="Numer inwentarzoy" className="form-control" ref={inputInventory} />
                         </div>
                         <div className="col-12 col-md-6 col-lg-3 break-15">
-                            <label for="units">Jednostki</label>
+                            <label htmlFor="units">Jednostki</label>
                             <select id="units" className="form-control" ref={inputUnit}>
                                     <option>Wszystkie</option>
                                 {units.list.map(unit =>
@@ -83,7 +83,7 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
                             </select>
                         </div>
                         <div className="col-12 col-md-6 col-lg-3 break-15">
-                            <label for="producers">Producenci</label>
+                            <label htmlFor="producers">Producenci</label>
                             <select id="producers" className="form-control" ref={inputProducent}>
                                     <option>Producent</option>
                                 {producers.list.map(producent =>
@@ -92,7 +92,7 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
                             </select>
                         </div>
                         <div className="col-12 col-md-6 col-lg-3 break-15">
-                            <label for="types">Typ</label>
+                            <label htmlFor="types">Typ</label>
                             <select id="types" className="form-control" ref={inputType}>
                                     <option>Typ</option>
                                 {types.list.map(type =>
@@ -107,7 +107,7 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
                             </select>
                         </div>
                         <div className="col-12 col-md-6 col-lg-3 break-15">
-                            <label for="status">Status</label>
+                            <label htmlFor="status">Status</label>
                             <select id="status" className="form-control" ref={inputStatus}>
                                     <option>Status</option>
                                     <option value="1">Aktywny</option>
@@ -125,7 +125,7 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
                 <hr />
             {isLoaded ? <span>Loading...</span> : ''}
             {allItems.slice(from, to).map(device =>
-                <Device key={device.id} device={device} />
+                <Device key={device.id} device={device} type="list"/>
             )}
             <div className="row">
                 <ul>
