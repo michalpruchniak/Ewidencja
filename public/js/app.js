@@ -81002,7 +81002,9 @@ var Device = function Device(_ref) {
     device: device,
     addDevice: addDevice,
     handoverProtocol: handoverProtocol
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_menuProtocol__WEBPACK_IMPORTED_MODULE_5__["default"], null)))));
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_menuProtocol__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    device: device
+  })))));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -81355,15 +81357,37 @@ var MenuList = function MenuList(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../handoverprotocol/actions */ "./resources/js/components/components/handoverprotocol/actions.js");
 
 
-var MenuProtocol = function MenuProtocol() {
+
+
+var MenuProtocol = function MenuProtocol(_ref) {
+  var device = _ref.device,
+      deleteDevice = _ref.deleteDevice;
+
+  var deleteDeviceFromProtocol = function deleteDeviceFromProtocol(e) {
+    e.preventDefault();
+    console.log(device);
+    deleteDevice(device.id);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#"
+    href: "#",
+    onClick: deleteDeviceFromProtocol
   }, "Usu\u0144"));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (MenuProtocol);
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    deleteDevice: function deleteDevice(id) {
+      return dispatch(_handoverprotocol_actions__WEBPACK_IMPORTED_MODULE_2__["default"].deleteDevice(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(MenuProtocol));
 
 /***/ }),
 
@@ -81567,10 +81591,18 @@ var reset = function reset() {
   };
 };
 
+var deleteDevice = function deleteDevice(id) {
+  return {
+    type: 'DELETE_DEVICE_HANDOVER_PROTOCOL',
+    id: id
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   addDevice: addDevice,
   newprotocol: newprotocol,
-  reset: reset
+  reset: reset,
+  deleteDevice: deleteDevice
 });
 
 /***/ }),
@@ -81812,6 +81844,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     reset: function reset() {
       return dispatch(_actions__WEBPACK_IMPORTED_MODULE_2__["default"].reset());
+    },
+    "delete": function _delete(id) {
+      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_2__["default"].deleteDevice(id));
     }
   };
 };
@@ -81933,6 +81968,12 @@ var mapStateToProps = function mapStateToProps(state) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81972,6 +82013,13 @@ var handoverProtocol = function handoverProtocol() {
         fromTo: [],
         list: []
       };
+
+    case 'DELETE_DEVICE_HANDOVER_PROTOCOL':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        list: _toConsumableArray(state.list.filter(function (device) {
+          return device.id !== action.id;
+        }))
+      });
 
     default:
       return state;

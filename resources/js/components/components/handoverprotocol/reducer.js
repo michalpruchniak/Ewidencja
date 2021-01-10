@@ -20,6 +20,11 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
                 fromTo: [],
                 list: []
             }
+        case 'DELETE_DEVICE_HANDOVER_PROTOCOL':
+            return {
+                ...state,
+                list: [...state.list.filter(device => device.id !== action.id)],
+            }
         default:
             return state
     }

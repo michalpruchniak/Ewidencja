@@ -47,7 +47,7 @@ const Device = ({device, type, addDevice, handoverProtocol}) => {
                                             addDevice={addDevice}
                                             handoverProtocol={handoverProtocol}
                                             />
-                                         : <MenuProtocol />}
+                                         : <MenuProtocol device={device} />}
                     </div>
                 </div>
             </div>

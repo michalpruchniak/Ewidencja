@@ -1,11 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const MenuProtocol = () => {
+import actions from '../../handoverprotocol/actions'
+
+const MenuProtocol = ({ device, deleteDevice }) => {
+
+    const deleteDeviceFromProtocol = (e) => {
+        e.preventDefault();
+        console.log(device);
+        deleteDevice(device.id)
+
+    }
     return (
         <React.Fragment>
-            <a href="#">Usuń</a>
+            <a href="#" onClick={deleteDeviceFromProtocol} >Usuń</a>
         </React.Fragment>
     );
 }
 
-export default MenuProtocol
+const mapDispatchToProps = dispatch => ({
+    deleteDevice: id => dispatch(actions.deleteDevice(id))
+
+})
+
+export default connect(null, mapDispatchToProps)(MenuProtocol);

@@ -20,7 +20,7 @@ const List = ({ handoverProtocol, units, reset }) => {
                 <b>Urządzenia</b>
             </div>
             <div className="row">
-                <div className="col-12">{handoverProtocol.list.map(device => <Device key={device.id} device={device}/>) }</div>
+                <div className="col-12">{handoverProtocol.list.map(device => <Device key={device.id} device={device} />) }</div>
             </div>
             <div className="row">
                 <div className="col-12">
@@ -37,7 +37,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    reset: () => dispatch(actions.reset())
+    reset: () => dispatch(actions.reset()),
+    delete: id => dispatch(actions.deleteDevice(id))
 
 })
 
