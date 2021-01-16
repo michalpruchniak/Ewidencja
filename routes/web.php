@@ -33,6 +33,7 @@ Route::get('/operationsystem', [OperationsystemController::class, 'getAllOperati
 Route::post('/producers/store', [ProducersController::class, 'storeProducer']);
 Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
 Route::post('/protocols/store', [ProtocolsController::class, 'store']);
+Route::post('/protocols/updateunit', [ProtocolsController::class, 'updateUnit']);
 
 
 

@@ -81814,11 +81814,11 @@ var List = function List(_ref) {
       reset = _ref.reset;
 
   var storeProtocol = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var API, values;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      var API, from, to, values;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               API = axios.create({
                 baseURL: 'http://localhost:8000/protocols',
@@ -81826,44 +81826,71 @@ var List = function List(_ref) {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
               });
-              _context.prev = 1;
+              from = units.list.find(function (x) {
+                return x.id == handoverProtocol.fromTo[0].from;
+              }).id;
+              to = units.list.find(function (x) {
+                return x.id == handoverProtocol.fromTo[0].to;
+              }).id;
+              _context2.prev = 3;
               values = {
-                from_id: units.list.find(function (x) {
-                  return x.id == handoverProtocol.fromTo[0].from;
-                }).id,
-                to_id: units.list.find(function (x) {
-                  return x.id == handoverProtocol.fromTo[0].to;
-                }).id
+                from_id: from,
+                to_id: to
               };
-              _context.next = 5;
-              return API.post('store', values).then(function (res) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Protokół przekazania został zapisany w bazie danych', {
-                  position: "bottom-left",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined
-                });
-              });
+              _context2.next = 7;
+              return API.post('store', values);
 
-            case 5:
-              e.target.reset();
-              _context.next = 11;
+            case 7:
+              handoverProtocol.list.map( /*#__PURE__*/function () {
+                var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(device) {
+                  var updated;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          updated = {
+                            device: device.id,
+                            unit_id: to
+                          };
+                          _context.next = 3;
+                          return API.post("updateunit", updated);
+
+                        case 3:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                }));
+
+                return function (_x) {
+                  return _ref3.apply(this, arguments);
+                };
+              }());
+              react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Protokół przekazania został zapisany w bazie danych', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+              });
+              reset();
+              _context2.next = 15;
               break;
 
-            case 8:
-              _context.prev = 8;
-              _context.t0 = _context["catch"](1);
-              console.log(_context.t0);
+            case 12:
+              _context2.prev = 12;
+              _context2.t0 = _context2["catch"](3);
+              console.log(_context2.t0);
 
-            case 11:
+            case 15:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee, null, [[1, 8]]);
+      }, _callee2, null, [[3, 12]]);
     }));
 
     return function storeProtocol() {
@@ -81877,17 +81904,13 @@ var List = function List(_ref) {
     className: "col-4 col-md-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Z")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-8 col-md-10"
-  }, units.list.find(function (x) {
-    return x.id == handoverProtocol.fromTo[0].from;
-  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, from)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-4 col-md-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Do")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-8 col-md-10"
-  }, units.list.find(function (x) {
-    return x.id == handoverProtocol.fromTo[0].to;
-  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, to)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Urz\u0105dzenia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"

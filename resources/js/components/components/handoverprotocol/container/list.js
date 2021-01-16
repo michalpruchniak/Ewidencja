@@ -14,27 +14,33 @@ const List = ({ handoverProtocol, units, reset }) => {
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
         });
-
+        const from = units.list.find(x => x.id == handoverProtocol.fromTo[0].from).id;
+        const to = units.list.find(x => x.id == handoverProtocol.fromTo[0].to).id;
         try {
             const values = {
-                from_id: units.list.find(x => x.id == handoverProtocol.fromTo[0].from).id,
-                to_id: units.list.find(x => x.id == handoverProtocol.fromTo[0].to).id
+                from_id: from,
+                to_id: to
             };
 
-            await API.post('store', values)
-                .then((res) => {
-                    toast.success('Protokół przekazania został zapisany w bazie danych', {
-                        position: "bottom-left",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
+            await API.post('store', values);
+            handoverProtocol.list.map(async device => {
+                const updated = {
+                    device: device.id,
+                    unit_id: to
+                }
+                await API.post("updateunit", updated)
 
-                });
-            e.target.reset();
+            });
+            toast.success('Protokół przekazania został zapisany w bazie danych', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            reset();
         } catch (error) {
             console.log(error);
         }
@@ -43,11 +49,11 @@ const List = ({ handoverProtocol, units, reset }) => {
         <React.Fragment>
             <div className="row">
                 <div className="col-4 col-md-2"><b>Z</b></div>
-                <div className="col-8 col-md-10">{units.list.find(x => x.id == handoverProtocol.fromTo[0].from).name}</div>
+                <div className="col-8 col-md-10">{from}</div>
             </div>
             <div className="row">
                 <div className="col-4 col-md-2"><b>Do</b></div>
-                <div className="col-8 col-md-10">{units.list.find(x => x.id == handoverProtocol.fromTo[0].to).name}</div>
+                <div className="col-8 col-md-10">{to}</div>
             </div>
             <div className="row">
                 <b>Urządzenia</b>
