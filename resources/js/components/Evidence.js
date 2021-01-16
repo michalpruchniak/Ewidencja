@@ -4,6 +4,7 @@ import Nav from './layout/nav'
 import CreateDevice from './components/device/container/create'
 import CreateProducers from './components/producers/container/create'
 import CreateHandoverProtocol from './components/handoverprotocol/container/create'
+import CreateOperationSystem from './components/operationsystem/container/create'
 import DevicesContainer from './components/device/container/list'
 import ProtocolPanel from './components/handoverprotocol/container/panel'
 import HandoverprotocolList from './components/handoverprotocol/container/index'
@@ -33,6 +34,9 @@ function Evidence() {
                     </Route>
                     <Route path="/nowy-protokol-przekazania">
                         <CreateHandoverProtocol />
+                    </Route>
+                    <Route path="/nowy-system-operacyjny">
+                        <CreateOperationSystem />
                     </Route>
                     <Route path="/wszystkie-urzadzenia">
                         <DevicesContainer />

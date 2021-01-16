@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnitsController;
+use App\Http\Controllers\ProtocolsController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\DevicesController;
 use App\Http\Controllers\ProducersController;
@@ -31,6 +32,7 @@ Route::get('/devices', [DevicesController::class, 'getAllDevices']);
 Route::get('/operationsystem', [OperationsystemController::class, 'getAllOperationsystem']);
 Route::post('/producers/store', [ProducersController::class, 'storeProducer']);
 Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
+Route::post('/protocols/store', [ProtocolsController::class, 'store']);
 
 
 

@@ -1,11 +1,44 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import actions from '../actions'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Device from '../../device/container/device'
 
 const List = ({ handoverProtocol, units, reset }) => {
 
+    const storeProtocol = async () => {
+        const API = axios.create({
+            baseURL: 'http://localhost:8000/protocols',
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+
+        });
+
+        try {
+            const values = {
+                from_id: units.list.find(x => x.id == handoverProtocol.fromTo[0].from).id,
+                to_id: units.list.find(x => x.id == handoverProtocol.fromTo[0].to).id
+            };
+
+            await API.post('store', values)
+                .then((res) => {
+                    toast.success('Protokół przekazania został zapisany w bazie danych', {
+                        position: "bottom-left",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+
+                });
+            e.target.reset();
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <React.Fragment>
             <div className="row">
@@ -25,6 +58,7 @@ const List = ({ handoverProtocol, units, reset }) => {
             <div className="row">
                 <div className="col-12">
                     <button className="btn btn-danger" onClick={() => reset()}>Usuń protokół przekazania</button>
+                    <button className="btn btn-success" onClick={() => storeProtocol()}>Zapisz protokół przekazania</button>
                 </div>
             </div>
         </React.Fragment>

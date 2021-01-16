@@ -19,6 +19,7 @@ const createOperatyionsystem = (props) => {
         });
 
         try {
+            console.log(values);
             await API.post('store', values)
                         .then((res) => {
                             toast.success('Producent został dodany poprawnie', {
