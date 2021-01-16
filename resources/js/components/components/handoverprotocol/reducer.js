@@ -1,6 +1,7 @@
 const INITIAL_HANDOVER_PROTOCOL = {
     fromTo: [],
-    list: []
+    list: [],
+    protocols: []
 }
 
 const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
@@ -24,6 +25,11 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
             return {
                 ...state,
                 list: [...state.list.filter(device => device.id !== action.id)],
+            }
+        case 'ADD_NEW_PROTOCOL':
+            return {
+                ...state,
+                protocols: [...state.protocols, action.item]
             }
         default:
             return state

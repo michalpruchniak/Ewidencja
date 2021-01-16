@@ -8,6 +8,11 @@ use App\Models\Device;
 
 class ProtocolsController extends Controller
 {
+    public function getAllProtocols(){
+        $protocols = Handoverprotocol::all();
+        return json_encode($protocols);
+    }
+
     public function store(Request $request){
         $protocol = Handoverprotocol::create([
             "from" => $request->from,

@@ -30,6 +30,7 @@ Route::get('/people', [PeopleController::class, 'getAllPeople']);
 Route::get('/producers', [ProducersController::class, 'getAllProducers']);
 Route::get('/devices', [DevicesController::class, 'getAllDevices']);
 Route::get('/operationsystem', [OperationsystemController::class, 'getAllOperationsystem']);
+Route::get('/protocols', [ProtocolsController::class, 'getAllProtocols']);
 Route::post('/producers/store', [ProducersController::class, 'storeProducer']);
 Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
 Route::post('/protocols/store', [ProtocolsController::class, 'store']);

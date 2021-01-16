@@ -80287,7 +80287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_units_operations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/units/operations */ "./resources/js/components/components/units/operations.js");
 /* harmony import */ var _components_operationsystem_operations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/operationsystem/operations */ "./resources/js/components/components/operationsystem/operations.js");
 /* harmony import */ var _components_device_operations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/device/operations */ "./resources/js/components/components/device/operations.js");
-/* harmony import */ var _Evidence__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Evidence */ "./resources/js/components/Evidence.js");
+/* harmony import */ var _components_handoverprotocol_operations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/handoverprotocol/operations */ "./resources/js/components/components/handoverprotocol/operations.js");
+/* harmony import */ var _Evidence__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Evidence */ "./resources/js/components/Evidence.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -80308,11 +80309,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function App(_ref) {
   var getAllProducers = _ref.getAllProducers,
       getAllUnits = _ref.getAllUnits,
       getAllOperationsystem = _ref.getAllOperationsystem,
-      getAllDevices = _ref.getAllDevices;
+      getAllDevices = _ref.getAllDevices,
+      getAllProtocols = _ref.getAllProtocols;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState2 = _slicedToArray(_useState, 2),
@@ -80320,12 +80323,11 @@ function App(_ref) {
       setIsLoaded = _useState2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    getAllProducers(), getAllUnits(), getAllOperationsystem(), getAllDevices();
-    setTimeout(function () {
+    getAllProducers(), getAllUnits(), getAllOperationsystem(), getAllDevices(), getAllProtocols(), setTimeout(function () {
       return setIsLoaded(false);
     }, 1500);
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evidence__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evidence__WEBPACK_IMPORTED_MODULE_7__["default"], null));
 }
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -80341,6 +80343,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     getAllDevices: function getAllDevices() {
       return dispatch(Object(_components_device_operations__WEBPACK_IMPORTED_MODULE_5__["getAllDevices"])());
+    },
+    getAllProtocols: function getAllProtocols() {
+      return dispatch(Object(_components_handoverprotocol_operations__WEBPACK_IMPORTED_MODULE_6__["getAllProtocols"])());
     }
   };
 };
@@ -81603,11 +81608,19 @@ var deleteDevice = function deleteDevice(id) {
   };
 };
 
+var addNewProtocol = function addNewProtocol(item) {
+  return {
+    type: 'ADD_NEW_PROTOCOL',
+    item: item
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   addDevice: addDevice,
   newprotocol: newprotocol,
   reset: reset,
-  deleteDevice: deleteDevice
+  deleteDevice: deleteDevice,
+  addNewProtocol: addNewProtocol
 });
 
 /***/ }),
@@ -81904,13 +81917,17 @@ var List = function List(_ref) {
     className: "col-4 col-md-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Z")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-8 col-md-10"
-  }, from)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, units.list.find(function (x) {
+    return x.id == handoverProtocol.fromTo[0].from;
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-4 col-md-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Do")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-8 col-md-10"
-  }, to)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, units.list.find(function (x) {
+    return x.id == handoverProtocol.fromTo[0].to;
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Urz\u0105dzenia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
@@ -82064,6 +82081,94 @@ var mapStateToProps = function mapStateToProps(state) {
 
 /***/ }),
 
+/***/ "./resources/js/components/components/handoverprotocol/operations.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/components/handoverprotocol/operations.js ***!
+  \***************************************************************************/
+/*! exports provided: getAllProtocols */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllProtocols", function() { return getAllProtocols; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./actions */ "./resources/js/components/components/handoverprotocol/actions.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var fetchProtocols = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var response, json;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return fetch('http://localhost:8000/protocols', {
+              method: 'GET'
+            });
+
+          case 2:
+            response = _context.sent;
+            _context.next = 5;
+            return response.json();
+
+          case 5:
+            json = _context.sent;
+            return _context.abrupt("return", json);
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function fetchProtocols() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var getAllProtocols = function getAllProtocols() {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch) {
+      var protocols;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return fetchProtocols();
+
+            case 2:
+              protocols = _context2.sent;
+              protocols.map(function (protocol) {
+                return dispatch(_actions__WEBPACK_IMPORTED_MODULE_1__["default"].addNewProtocol(protocol));
+              });
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
+/***/ }),
+
 /***/ "./resources/js/components/components/handoverprotocol/reducer.js":
 /*!************************************************************************!*\
   !*** ./resources/js/components/components/handoverprotocol/reducer.js ***!
@@ -82093,7 +82198,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var INITIAL_HANDOVER_PROTOCOL = {
   fromTo: [],
-  list: []
+  list: [],
+  protocols: []
 };
 
 var handoverProtocol = function handoverProtocol() {
@@ -82124,6 +82230,11 @@ var handoverProtocol = function handoverProtocol() {
         list: _toConsumableArray(state.list.filter(function (device) {
           return device.id !== action.id;
         }))
+      });
+
+    case 'ADD_NEW_PROTOCOL':
+      return _objectSpread(_objectSpread({}, state), {}, {
+        protocols: [].concat(_toConsumableArray(state.protocols), [action.item])
       });
 
     default:
