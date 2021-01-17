@@ -80373,8 +80373,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_device_container_list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/device/container/list */ "./resources/js/components/components/device/container/list.js");
 /* harmony import */ var _components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/handoverprotocol/container/panel */ "./resources/js/components/components/handoverprotocol/container/panel.js");
 /* harmony import */ var _components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/handoverprotocol/container/index */ "./resources/js/components/components/handoverprotocol/container/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_handoverprotocol_container_allprotocols__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/handoverprotocol/container/allprotocols */ "./resources/js/components/components/handoverprotocol/container/allprotocols.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -80388,19 +80390,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Evidence() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_panel__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
     path: "/nowe-urzadzenie"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_create__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
     path: "/nowy-producent"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_producers_container_create__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_producers_container_create__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
     path: "/nowy-protokol-przekazania"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_create__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_create__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
     path: "/nowy-system-operacyjny"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_operationsystem_container_create__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_operationsystem_container_create__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
     path: "/wszystkie-urzadzenia"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_list__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_device_container_list__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
     path: "/protokol-przekazania"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_8__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_9__["ToastContainer"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_index__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
+    path: "/wszystkie-protokoly-przekazania"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_handoverprotocol_container_allprotocols__WEBPACK_IMPORTED_MODULE_9__["default"], null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_10__["ToastContainer"], {
     position: "bottom-left",
     autoClose: 5000,
     hideProgressBar: false,
@@ -81625,6 +81629,43 @@ var addNewProtocol = function addNewProtocol(item) {
 
 /***/ }),
 
+/***/ "./resources/js/components/components/handoverprotocol/container/allprotocols.js":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/components/handoverprotocol/container/allprotocols.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _document__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./document */ "./resources/js/components/components/handoverprotocol/container/document.js");
+
+
+
+
+var allProtocols = function allProtocols(_ref) {
+  var handoverProtocol = _ref.handoverProtocol;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, handoverProtocol.protocols.map(function (protocol) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_document__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: protocol.id,
+      protocol: protocol
+    });
+  }));
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    handoverProtocol: state.handoverProtocol
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(allProtocols));
+
+/***/ }),
+
 /***/ "./resources/js/components/components/handoverprotocol/container/create.js":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/components/handoverprotocol/container/create.js ***!
@@ -81659,9 +81700,6 @@ __webpack_require__.r(__webpack_exports__);
 var createHandoverProtocol = function createHandoverProtocol(_ref) {
   var units = _ref.units,
       newprotocol = _ref.newprotocol;
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    Object(_units_operations__WEBPACK_IMPORTED_MODULE_8__["getAllUnits"])();
-  }, []);
 
   var _useForm = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_4__["useForm"])(),
       register = _useForm.register,
@@ -81748,6 +81786,55 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./resources/js/components/components/handoverprotocol/container/document.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/components/handoverprotocol/container/document.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+var Document = function Document(_ref) {
+  var protocol = _ref.protocol,
+      units = _ref.units;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card break-15"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-5 col-md-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: "), " ", units.list.find(function (x) {
+    return x.id == protocol.from_id;
+  }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), " ", units.list.find(function (x) {
+    return x.id == protocol.to_id;
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-7 col-md-8"
+  }))));
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    units: state.units
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, null)(Document));
+
+/***/ }),
+
 /***/ "./resources/js/components/components/handoverprotocol/container/index.js":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/components/handoverprotocol/container/index.js ***!
@@ -81821,14 +81908,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 var List = function List(_ref) {
   var handoverProtocol = _ref.handoverProtocol,
       units = _ref.units,
       reset = _ref.reset;
+  var from = handoverProtocol.fromTo[0].from;
+  var to = handoverProtocol.fromTo[0].to;
 
   var storeProtocol = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-      var API, from, to, values;
+      var API, values;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -81839,21 +81929,15 @@ var List = function List(_ref) {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
               });
-              from = units.list.find(function (x) {
-                return x.id == handoverProtocol.fromTo[0].from;
-              }).id;
-              to = units.list.find(function (x) {
-                return x.id == handoverProtocol.fromTo[0].to;
-              }).id;
-              _context2.prev = 3;
+              _context2.prev = 1;
               values = {
                 from_id: from,
                 to_id: to
               };
-              _context2.next = 7;
+              _context2.next = 5;
               return API.post('store', values);
 
-            case 7:
+            case 5:
               handoverProtocol.list.map( /*#__PURE__*/function () {
                 var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(device) {
                   var updated;
@@ -81890,20 +81974,20 @@ var List = function List(_ref) {
                 progress: undefined
               });
               reset();
-              _context2.next = 15;
+              _context2.next = 13;
               break;
 
-            case 12:
-              _context2.prev = 12;
-              _context2.t0 = _context2["catch"](3);
+            case 10:
+              _context2.prev = 10;
+              _context2.t0 = _context2["catch"](1);
               console.log(_context2.t0);
 
-            case 15:
+            case 13:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[3, 12]]);
+      }, _callee2, null, [[1, 10]]);
     }));
 
     return function storeProtocol() {
@@ -83270,7 +83354,10 @@ var Nav = function Nav() {
   }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/wszystkie-urzadzenia",
     className: "nav-item nav-link active"
-  }, "Wszystkie urz\u0105dzenia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Wszystkie urz\u0105dzenia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/wszystkie-protokoly-przekazania",
+    className: "nav-item nav-link active"
+  }, "Dokumenty"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nav-item dropdown"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",

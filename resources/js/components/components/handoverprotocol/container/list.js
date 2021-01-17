@@ -5,8 +5,12 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Device from '../../device/container/device'
+import { useEffect } from 'react'
 
 const List = ({ handoverProtocol, units, reset }) => {
+
+    const from = handoverProtocol.fromTo[0].from;
+    const to = handoverProtocol.fromTo[0].to;
 
     const storeProtocol = async () => {
         const API = axios.create({
@@ -14,8 +18,8 @@ const List = ({ handoverProtocol, units, reset }) => {
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
         });
-        const from = units.list.find(x => x.id == handoverProtocol.fromTo[0].from).id;
-        const to = units.list.find(x => x.id == handoverProtocol.fromTo[0].to).id;
+
+
         try {
             const values = {
                 from_id: from,

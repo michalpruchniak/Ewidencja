@@ -8,6 +8,7 @@ import CreateOperationSystem from './components/operationsystem/container/create
 import DevicesContainer from './components/device/container/list'
 import ProtocolPanel from './components/handoverprotocol/container/panel'
 import HandoverprotocolList from './components/handoverprotocol/container/index'
+import AllProtocols from './components/handoverprotocol/container/allprotocols'
 import { ToastContainer } from 'react-toastify';
 import {
     HashRouter as Router,
@@ -43,6 +44,9 @@ function Evidence() {
                     </Route>
                     <Route path="/protokol-przekazania">
                         <HandoverprotocolList />
+                    </Route>
+                    <Route path="/wszystkie-protokoly-przekazania">
+                        <AllProtocols />
                     </Route>
                 </Switch>
             </Router>

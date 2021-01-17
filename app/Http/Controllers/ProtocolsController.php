@@ -15,8 +15,8 @@ class ProtocolsController extends Controller
 
     public function store(Request $request){
         $protocol = Handoverprotocol::create([
-            "from" => $request->from,
-            "to" => $request->to
+            "from_id" => $request->from_id,
+            "to_id" => $request->to_id
         ]);
         return json_encode($protocol);
     }

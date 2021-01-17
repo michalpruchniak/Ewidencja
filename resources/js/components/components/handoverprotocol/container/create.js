@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import { getAllUnits } from '../../units/operations'
 
 const createHandoverProtocol = ({ units, newprotocol }) => {
-    useEffect(() => {getAllUnits()}, [])
     const { register, handleSubmit, errors } = useForm();
 
     const addNewProtocol = (e) => {

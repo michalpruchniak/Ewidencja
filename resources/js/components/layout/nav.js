@@ -13,6 +13,7 @@ const Nav = () => {
                 <div className="navbar-nav">
                     <a href="#" className="nav-item nav-link active">Home</a>
                     <Link to="/wszystkie-urzadzenia" className="nav-item nav-link active">Wszystkie urządzenia</Link>
+                    <Link to="/wszystkie-protokoly-przekazania" className="nav-item nav-link active">Dokumenty</Link>
                     <div className="nav-item dropdown">
                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Nowy</a>
                         <div className="dropdown-menu">
