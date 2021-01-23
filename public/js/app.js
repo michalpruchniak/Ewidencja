@@ -82317,8 +82317,26 @@ var handoverProtocol = function handoverProtocol() {
       });
 
     case 'ADD_NEW_PROTOCOL':
+      var newprotocol = action.item;
+      newprotocol.devices = [];
       return _objectSpread(_objectSpread({}, state), {}, {
-        protocols: [].concat(_toConsumableArray(state.protocols), [action.item])
+        protocols: [].concat(_toConsumableArray(state.protocols), [newprotocol])
+      });
+
+    case 'ADD_DEVICE_TO_PROTOCOL':
+      var _action$item = action.item,
+          protocol = _action$item.protocol,
+          id = _action$item.id,
+          name = _action$item.name;
+
+      var protocols = _toConsumableArray(state.protocols);
+
+      protocols[protocol].devices.push({
+        id: id,
+        name: name
+      });
+      return _objectSpread(_objectSpread({}, state), {}, {
+        protocols: protocols
       });
 
     default:

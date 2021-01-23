@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Device extends Model
 {
     use HasFactory;
@@ -25,4 +26,8 @@ class Device extends Model
         'description',
         'operation_system',
     ];
+
+    public function myProtocols(){
+        return $this->belongsToMany(Handoverprotocol::class);
+    }
 }

@@ -10,6 +10,7 @@ class ProtocolsController extends Controller
 {
     public function getAllProtocols(){
         $protocols = Handoverprotocol::all();
+
         return json_encode($protocols);
     }
 
