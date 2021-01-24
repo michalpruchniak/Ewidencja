@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Models\Handoverprotocol;
 use App\Models\Device;
 
@@ -28,5 +29,22 @@ class ProtocolsController extends Controller
         $device->save();
 
         return json_encode($device);
+    }
+
+    public function devicesWithProtocols(){
+        $protocol = [];
+        $devices = [];
+        $allDevices = Device::with('myProtocols')->get();
+
+        foreach($allDevices as $device){
+            $obj = new \stdClass();
+            foreach($device->myProtocols as $protocol){
+                $obj->protocol_id = $protocol->id;
+                $obj->name = $device->name;
+                array_push($devices, $obj);
+            }
+        }
+
+        return json_encode($devices);
     }
 }

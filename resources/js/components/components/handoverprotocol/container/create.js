@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import _ from "lodash/fp";
 import actions from '../actions'
@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form'
 import Error from '../../../alerts/error'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { getAllUnits } from '../../units/operations'
 
 const createHandoverProtocol = ({ units, newprotocol }) => {
     const { register, handleSubmit, errors } = useForm();

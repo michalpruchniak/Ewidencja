@@ -80325,7 +80325,7 @@ function App(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     getAllProducers(), getAllUnits(), getAllOperationsystem(), getAllDevices(), getAllProtocols(), setTimeout(function () {
       return setIsLoaded(false);
-    }, 1500);
+    }, 3000);
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, isLoaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Loading...") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Evidence__WEBPACK_IMPORTED_MODULE_7__["default"], null));
 }
@@ -81619,12 +81619,20 @@ var addNewProtocol = function addNewProtocol(item) {
   };
 };
 
+var addDeviceToProtocol = function addDeviceToProtocol(item) {
+  return {
+    type: 'ADD_DEVICE_TO_PROTOCOL',
+    item: item
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   addDevice: addDevice,
   newprotocol: newprotocol,
   reset: reset,
   deleteDevice: deleteDevice,
-  addNewProtocol: addNewProtocol
+  addNewProtocol: addNewProtocol,
+  addDeviceToProtocol: addDeviceToProtocol
 });
 
 /***/ }),
@@ -81686,8 +81694,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _units_operations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../units/operations */ "./resources/js/components/components/units/operations.js");
-
 
 
 
@@ -82220,33 +82226,83 @@ var fetchProtocols = /*#__PURE__*/function () {
   };
 }();
 
+var fetchDevicesWithProtocol = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+    var response, json;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return fetch('http://localhost:8000/devices-with-protocols', {
+              method: 'GET'
+            });
+
+          case 2:
+            response = _context2.sent;
+            _context2.next = 5;
+            return response.json();
+
+          case 5:
+            json = _context2.sent;
+            return _context2.abrupt("return", json);
+
+          case 7:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function fetchDevicesWithProtocol() {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
 var getAllProtocols = function getAllProtocols() {
   return /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(dispatch) {
-      var protocols;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(dispatch) {
+      var protocols, devices;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
-              _context2.next = 2;
+              _context3.next = 2;
               return fetchProtocols();
 
             case 2:
-              protocols = _context2.sent;
+              protocols = _context3.sent;
               protocols.map(function (protocol) {
                 return dispatch(_actions__WEBPACK_IMPORTED_MODULE_1__["default"].addNewProtocol(protocol));
               });
+              _context3.prev = 4;
+              _context3.next = 7;
+              return fetchDevicesWithProtocol();
 
-            case 4:
+            case 7:
+              devices = _context3.sent;
+              devices.map(function (device) {
+                return dispatch(_actions__WEBPACK_IMPORTED_MODULE_1__["default"].addDeviceToProtocol(device));
+              });
+              _context3.next = 14;
+              break;
+
+            case 11:
+              _context3.prev = 11;
+              _context3.t0 = _context3["catch"](4);
+              console.log(_context3.t0);
+
+            case 14:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3, null, [[4, 11]]);
     }));
 
     return function (_x) {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 };
@@ -82325,13 +82381,13 @@ var handoverProtocol = function handoverProtocol() {
 
     case 'ADD_DEVICE_TO_PROTOCOL':
       var _action$item = action.item,
-          protocol = _action$item.protocol,
+          protocol_id = _action$item.protocol_id,
           id = _action$item.id,
           name = _action$item.name;
 
       var protocols = _toConsumableArray(state.protocols);
 
-      protocols[protocol].devices.push({
+      protocols[protocol_id].devices.push({
         id: id,
         name: name
       });

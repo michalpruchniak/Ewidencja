@@ -15,7 +15,7 @@ function App({ getAllProducers, getAllUnits, getAllOperationsystem, getAllDevice
       getAllOperationsystem(),
       getAllDevices(),
       getAllProtocols(),
-      setTimeout(() => setIsLoaded(false), 1500)
+      setTimeout(() => setIsLoaded(false), 3000)
   }, [])
   return (
     <div>
