@@ -1,23 +1,24 @@
 const INITIAL_HANDOVER_PROTOCOL = {
     fromTo: [],
     list: [],
-    protocols: []
+    protocols: [],
 }
 
 const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
     switch(action.type){
         case 'NEW_HANDOVER_PROTOCOL':
             return {
-                fromTo: [action.item],
-                list: [...state.list],
+                ...state,
+                fromTo: [action.item]
             }
         case 'ADD_DEVICE_TO_LIST':
             return {
-                fromTo: [...state.fromTo],
+                ...state,
                 list: [...state.list, action.item]
             }
         case 'RESET_HANDOVER_PROTOCOL':
             return {
+                ...state,
                 fromTo: [],
                 list: []
             }
