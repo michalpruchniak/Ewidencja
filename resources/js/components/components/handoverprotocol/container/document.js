@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const Document = ({ protocol, units }) => {
-
+    console.log(protocol);
     return(
         <div className="card break-15">
             <div className="card-body">
@@ -16,7 +16,9 @@ const Document = ({ protocol, units }) => {
                         </div>
                     </div>
                     <div className="col-7 col-md-8">
-
+                        <ul>
+                            {protocol.devices.map((device) => <li>{device.name}</li>)}
+                        </ul>
                     </div>
                 </div>
             </div>

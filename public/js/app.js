@@ -81810,6 +81810,7 @@ __webpack_require__.r(__webpack_exports__);
 var Document = function Document(_ref) {
   var protocol = _ref.protocol,
       units = _ref.units;
+  console.log(protocol);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81828,7 +81829,9 @@ var Document = function Document(_ref) {
     return x.id == protocol.to_id;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-7 col-md-8"
-  }))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, protocol.devices.map(function (device) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, device.name);
+  }))))));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
