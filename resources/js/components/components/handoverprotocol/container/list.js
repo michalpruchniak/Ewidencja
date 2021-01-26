@@ -5,12 +5,12 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Device from '../../device/container/device'
-import { useEffect } from 'react'
 
 const List = ({ handoverProtocol, units, reset }) => {
 
     const from = handoverProtocol.fromTo[0].from;
     const to = handoverProtocol.fromTo[0].to;
+    const devices = handoverProtocol.list;
 
     const storeProtocol = async () => {
         const API = axios.create({
@@ -23,7 +23,8 @@ const List = ({ handoverProtocol, units, reset }) => {
         try {
             const values = {
                 from_id: from,
-                to_id: to
+                to_id: to,
+                devices: devices
             };
 
             await API.post('store', values);

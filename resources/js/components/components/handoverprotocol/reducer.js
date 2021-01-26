@@ -36,9 +36,14 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
             }
 
             case 'ADD_DEVICE_TO_PROTOCOL':
-            const { protocol_id, id, name } = action.item
+            const { protocol_id, name } = action.item
             const protocols = [...state.protocols];
-            protocols[protocol_id].devices.push({ id, name })
+            protocols.filter((x) => {
+                if(x.id == protocol_id){
+                    x.devices.push(name)
+                }
+            })
+
             return {
                 ...state,
                 protocols

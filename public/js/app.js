@@ -81810,7 +81810,6 @@ __webpack_require__.r(__webpack_exports__);
 var Document = function Document(_ref) {
   var protocol = _ref.protocol,
       units = _ref.units;
-  console.log(protocol);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81825,12 +81824,12 @@ var Document = function Document(_ref) {
     return x.id == protocol.from_id;
   }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), " ", units.list.find(function (x) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), units.list.find(function (x) {
     return x.id == protocol.to_id;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-7 col-md-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, protocol.devices.map(function (device) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, device.name);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, device);
   }))))));
 };
 
@@ -81917,13 +81916,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
 var List = function List(_ref) {
   var handoverProtocol = _ref.handoverProtocol,
       units = _ref.units,
       reset = _ref.reset;
   var from = handoverProtocol.fromTo[0].from;
   var to = handoverProtocol.fromTo[0].to;
+  var devices = handoverProtocol.list;
 
   var storeProtocol = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
@@ -81941,7 +81940,8 @@ var List = function List(_ref) {
               _context2.prev = 1;
               values = {
                 from_id: from,
-                to_id: to
+                to_id: to,
+                devices: devices
               };
               _context2.next = 5;
               return API.post('store', values);
@@ -82383,14 +82383,14 @@ var handoverProtocol = function handoverProtocol() {
     case 'ADD_DEVICE_TO_PROTOCOL':
       var _action$item = action.item,
           protocol_id = _action$item.protocol_id,
-          id = _action$item.id,
           name = _action$item.name;
 
       var protocols = _toConsumableArray(state.protocols);
 
-      protocols[protocol_id].devices.push({
-        id: id,
-        name: name
+      protocols.filter(function (x) {
+        if (x.id == protocol_id) {
+          x.devices.push(name);
+        }
       });
       return _objectSpread(_objectSpread({}, state), {}, {
         protocols: protocols

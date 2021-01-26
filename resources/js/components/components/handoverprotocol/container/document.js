@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const Document = ({ protocol, units }) => {
-    console.log(protocol);
     return(
         <div className="card break-15">
             <div className="card-body">
@@ -12,12 +11,13 @@ const Document = ({ protocol, units }) => {
                             <b>Z: </b> {units.list.find(x => x.id == protocol.from_id).name}
                         </div>
                         <div className="col-12">
-                            <b>Do: </b> {units.list.find(x => x.id == protocol.to_id).name}
+                            <b>Do: </b>
+                             {units.list.find(x => x.id == protocol.to_id).name}
                         </div>
                     </div>
                     <div className="col-7 col-md-8">
                         <ul>
-                            {protocol.devices.map((device) => <li>{device.name}</li>)}
+                            {protocol.devices.map((device) => <li>{device}</li>)}
                         </ul>
                     </div>
                 </div>
