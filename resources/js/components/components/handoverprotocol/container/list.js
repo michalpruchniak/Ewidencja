@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import Device from '../../device/container/device'
 
-const List = ({ handoverProtocol, units, reset }) => {
+const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProtocol }) => {
 
     const from = handoverProtocol.fromTo[0].from;
     const to = handoverProtocol.fromTo[0].to;
@@ -36,6 +36,11 @@ const List = ({ handoverProtocol, units, reset }) => {
                 await API.post("updateunit", updated)
 
             });
+            addNewProtocol(values);
+            console.log(devices);
+            devices.map((device) => addDeviceToProtocol(device));
+
+            // console.log(values.devices);
             toast.success('Protokół przekazania został zapisany w bazie danych', {
                 position: "bottom-left",
                 autoClose: 5000,
@@ -83,7 +88,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     reset: () => dispatch(actions.reset()),
-    delete: id => dispatch(actions.deleteDevice(id))
+    delete: id => dispatch(actions.deleteDevice(id)),
+    addNewProtocol: protocol => dispatch(actions.addNewProtocol(protocol)),
+    addDeviceToProtocol: device => dispatch(actions.addDeviceToProtocol(device)),
 
 })
 

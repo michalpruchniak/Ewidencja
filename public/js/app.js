@@ -81919,7 +81919,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var List = function List(_ref) {
   var handoverProtocol = _ref.handoverProtocol,
       units = _ref.units,
-      reset = _ref.reset;
+      reset = _ref.reset,
+      addNewProtocol = _ref.addNewProtocol,
+      addDeviceToProtocol = _ref.addDeviceToProtocol;
   var from = handoverProtocol.fromTo[0].from;
   var to = handoverProtocol.fromTo[0].to;
   var devices = handoverProtocol.list;
@@ -81973,6 +81975,12 @@ var List = function List(_ref) {
                   return _ref3.apply(this, arguments);
                 };
               }());
+              addNewProtocol(values);
+              console.log(devices);
+              devices.map(function (device) {
+                return addDeviceToProtocol(device);
+              }); // console.log(values.devices);
+
               react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Protokół przekazania został zapisany w bazie danych', {
                 position: "bottom-left",
                 autoClose: 5000,
@@ -81983,20 +81991,20 @@ var List = function List(_ref) {
                 progress: undefined
               });
               reset();
-              _context2.next = 13;
+              _context2.next = 16;
               break;
 
-            case 10:
-              _context2.prev = 10;
+            case 13:
+              _context2.prev = 13;
               _context2.t0 = _context2["catch"](1);
               console.log(_context2.t0);
 
-            case 13:
+            case 16:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[1, 10]]);
+      }, _callee2, null, [[1, 13]]);
     }));
 
     return function storeProtocol() {
@@ -82062,6 +82070,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     "delete": function _delete(id) {
       return dispatch(_actions__WEBPACK_IMPORTED_MODULE_3__["default"].deleteDevice(id));
+    },
+    addNewProtocol: function addNewProtocol(protocol) {
+      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_3__["default"].addNewProtocol(protocol));
+    },
+    addDeviceToProtocol: function addDeviceToProtocol(device) {
+      return dispatch(_actions__WEBPACK_IMPORTED_MODULE_3__["default"].addDeviceToProtocol(device));
     }
   };
 };
