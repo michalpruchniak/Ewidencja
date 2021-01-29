@@ -6,9 +6,9 @@ import Panel from './panel/panel'
 
 const ProtocolPanel = ({ handoverProtocol }) => {
     return (
-        <React.Fragment>
+        <div className="panel">
             {(handoverProtocol.fromTo.length === 0 ? <Lack /> : <Panel /> )}
-        </React.Fragment>
+        </div>
     );
 }
 

@@ -37,10 +37,8 @@ const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProto
 
             });
             addNewProtocol(values);
-            console.log(devices);
             devices.map((device) => addDeviceToProtocol(device));
 
-            // console.log(values.devices);
             toast.success('Protokół przekazania został zapisany w bazie danych', {
                 position: "bottom-left",
                 autoClose: 5000,

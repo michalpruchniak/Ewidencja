@@ -81976,11 +81976,9 @@ var List = function List(_ref) {
                 };
               }());
               addNewProtocol(values);
-              console.log(devices);
               devices.map(function (device) {
                 return addDeviceToProtocol(device);
-              }); // console.log(values.devices);
-
+              });
               react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Protokół przekazania został zapisany w bazie danych', {
                 position: "bottom-left",
                 autoClose: 5000,
@@ -81991,20 +81989,20 @@ var List = function List(_ref) {
                 progress: undefined
               });
               reset();
-              _context2.next = 16;
+              _context2.next = 15;
               break;
 
-            case 13:
-              _context2.prev = 13;
+            case 12:
+              _context2.prev = 12;
               _context2.t0 = _context2["catch"](1);
               console.log(_context2.t0);
 
-            case 16:
+            case 15:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[1, 13]]);
+      }, _callee2, null, [[1, 12]]);
     }));
 
     return function storeProtocol() {
@@ -82105,7 +82103,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var ProtocolPanel = function ProtocolPanel(_ref) {
   var handoverProtocol = _ref.handoverProtocol;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, handoverProtocol.fromTo.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_lack__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_panel__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "panel"
+  }, handoverProtocol.fromTo.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_lack__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_panel__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -82160,20 +82160,36 @@ var Panel = function Panel(_ref) {
   var handoverProtocol = _ref.handoverProtocol,
       units = _ref.units;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: "1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: "), units.list.find(function (x) {
+    key: "1",
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-10"
+  }, units.list.find(function (x) {
     return x.id == handoverProtocol.fromTo[0].from;
-  }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: "2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), units.list.find(function (x) {
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: "2",
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-10"
+  }, units.list.find(function (x) {
     return x.id == handoverProtocol.fromTo[0].to;
-  }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: "3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "liczba element\xF3w:"), handoverProtocol.list.length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    key: "4"
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: "3",
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "liczba element\xF3w:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, handoverProtocol.list.length)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    key: "4",
+    className: "break-15"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     to: "/protokol-przekazania",
-    className: "dropdown-item"
+    className: "btn btn-primary"
   }, "Poka\u017C protok\xF3\u0142 przekazania"))));
 };
 

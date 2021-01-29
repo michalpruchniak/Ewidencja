@@ -9,11 +9,11 @@ import {
 const Panel = ({ handoverProtocol, units }) => {
     return (
         <ul>
-            <li key="1"><b>Z: </b>{units.list.find(x => x.id == handoverProtocol.fromTo[0].from).name}</li>
-            <li key="2"><b>Do: </b>{ units.list.find(x => x.id == handoverProtocol.fromTo[0].to).name}</li>
-            <li key="3"><b>liczba elementów:</b>{handoverProtocol.list.length}</li>
+            <li key="1" className="row"><div className="col-2"><b>Z: </b></div><div className="col-10">{units.list.find(x => x.id == handoverProtocol.fromTo[0].from).name}</div></li>
+            <li key="2" className="row"><div className="col-2"><b>Do: </b></div><div className="col-10">{ units.list.find(x => x.id == handoverProtocol.fromTo[0].to).name}</div></li>
+            <li key="3" className="row"><div className="col-6"><b>liczba elementów:</b></div><div className="col-6">{handoverProtocol.list.length}</div></li>
             <Router>
-                <li key="4"><Link to="/protokol-przekazania" className="dropdown-item">Pokaż protokół przekazania</Link></li>
+                <li key="4" className="break-15"><Link to="/protokol-przekazania" className="btn btn-primary">Pokaż protokół przekazania</Link></li>
             </Router>
         </ul>
     )

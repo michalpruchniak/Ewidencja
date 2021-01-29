@@ -10904,6 +10904,23 @@ a.text-dark:focus {
 }
 
 .break-15 {
-  margin-top: 13px;
+  margin-top: 15px;
+}
+
+.panel {
+  border: 1px solid #000;
+  width: 350px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
+.panel p {
+  text-align: center;
+}
+
+.panel ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
