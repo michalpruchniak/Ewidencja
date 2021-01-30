@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import actions from '../actions'
+import actionsDevice from '../../device/actions'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Device from '../../device/container/device'
+import { update } from 'lodash'
 
-const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProtocol }) => {
+const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProtocol, updateUnit }) => {
 
     const from = handoverProtocol.fromTo[0].from;
     const to = handoverProtocol.fromTo[0].to;
@@ -37,7 +39,14 @@ const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProto
 
             });
             addNewProtocol(values);
-            devices.map((device) => addDeviceToProtocol(device));
+            devices.map((device) => {
+                addDeviceToProtocol(device);
+                const element = {
+                    id: device.id,
+                    unit_id: to
+                }
+                updateUnit(element);
+            });
 
             toast.success('Protokół przekazania został zapisany w bazie danych', {
                 position: "bottom-left",
@@ -89,6 +98,7 @@ const mapDispatchToProps = dispatch => ({
     delete: id => dispatch(actions.deleteDevice(id)),
     addNewProtocol: protocol => dispatch(actions.addNewProtocol(protocol)),
     addDeviceToProtocol: device => dispatch(actions.addDeviceToProtocol(device)),
+    updateUnit: device => dispatch(actionsDevice.updateUnit(device))
 
 })
 

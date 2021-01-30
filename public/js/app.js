@@ -80491,8 +80491,16 @@ var add = function add(item) {
   };
 };
 
+var updateUnit = function updateUnit(item) {
+  return {
+    type: 'UPDATE_UNIT',
+    item: item
+  };
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  add: add
+  add: add,
+  updateUnit: updateUnit
 });
 
 /***/ }),
@@ -81444,6 +81452,12 @@ var getAllDevices = function getAllDevices() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81469,6 +81483,19 @@ var devices = function devices() {
       return {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       };
+
+    case 'UPDATE_UNIT':
+      var index = state.list.findIndex(function (device) {
+        return device.id == action.item.id;
+      });
+
+      var newList = _toConsumableArray(state.list);
+
+      console.log(index);
+      newList[index].unit_id = action.item.unit_id;
+      return _objectSpread(_objectSpread({}, state), {}, {
+        list: newList
+      });
 
     default:
       return state;
@@ -81837,10 +81864,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions */ "./resources/js/components/components/handoverprotocol/actions.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
-/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _device_container_device__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../device/container/device */ "./resources/js/components/components/device/container/device.js");
+/* harmony import */ var _device_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../device/actions */ "./resources/js/components/components/device/actions.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
+/* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _device_container_device__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../device/container/device */ "./resources/js/components/components/device/container/device.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -81854,12 +81884,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
+
 var List = function List(_ref) {
   var handoverProtocol = _ref.handoverProtocol,
       units = _ref.units,
       reset = _ref.reset,
       addNewProtocol = _ref.addNewProtocol,
-      addDeviceToProtocol = _ref.addDeviceToProtocol;
+      addDeviceToProtocol = _ref.addDeviceToProtocol,
+      updateUnit = _ref.updateUnit;
   var from = handoverProtocol.fromTo[0].from;
   var to = handoverProtocol.fromTo[0].to;
   var devices = handoverProtocol.list;
@@ -81915,9 +81948,14 @@ var List = function List(_ref) {
               }());
               addNewProtocol(values);
               devices.map(function (device) {
-                return addDeviceToProtocol(device);
+                addDeviceToProtocol(device);
+                var element = {
+                  id: device.id,
+                  unit_id: to
+                };
+                updateUnit(element);
               });
-              react_toastify__WEBPACK_IMPORTED_MODULE_4__["toast"].success('Protokół przekazania został zapisany w bazie danych', {
+              react_toastify__WEBPACK_IMPORTED_MODULE_5__["toast"].success('Protokół przekazania został zapisany w bazie danych', {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -81971,7 +82009,7 @@ var List = function List(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-12"
   }, handoverProtocol.list.map(function (device) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_device_container_device__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_device_container_device__WEBPACK_IMPORTED_MODULE_7__["default"], {
       key: device.id,
       device: device
     });
@@ -82012,6 +82050,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     addDeviceToProtocol: function addDeviceToProtocol(device) {
       return dispatch(_actions__WEBPACK_IMPORTED_MODULE_3__["default"].addDeviceToProtocol(device));
+    },
+    updateUnit: function updateUnit(device) {
+      return dispatch(_device_actions__WEBPACK_IMPORTED_MODULE_4__["default"].updateUnit(device));
     }
   };
 };
