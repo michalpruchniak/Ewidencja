@@ -80935,7 +80935,8 @@ var Device = function Device(_ref) {
   var device = _ref.device,
       type = _ref.type,
       addDevice = _ref.addDevice,
-      handoverProtocol = _ref.handoverProtocol;
+      handoverProtocol = _ref.handoverProtocol,
+      units = _ref.units;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -80943,7 +80944,7 @@ var Device = function Device(_ref) {
       setFlag = _useState2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (handoverProtocol.fromTo.length > 0) {
+    if (handoverProtocol.from.length > 0) {
       setFlag(Object(_velidateDevice__WEBPACK_IMPORTED_MODULE_3__["default"])(device, handoverProtocol).flag);
     }
   });
@@ -80959,7 +80960,9 @@ var Device = function Device(_ref) {
     className: "col-7"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.inventory), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Unit: ", device.unit_id)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Numer inwentarzowy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.inventory), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Jednostka: ", units.list.find(function (x) {
+    return x.id == device.unit_id;
+  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Cena zakupu")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, device.purchase_price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-5"
   }, type === "list" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_menuList__WEBPACK_IMPORTED_MODULE_4__["default"], {
     flag: flag,
@@ -80973,7 +80976,8 @@ var Device = function Device(_ref) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    handoverProtocol: state.handoverProtocol
+    handoverProtocol: state.handoverProtocol,
+    units: state.units
   };
 };
 
@@ -81333,7 +81337,6 @@ var MenuProtocol = function MenuProtocol(_ref) {
 
   var deleteDeviceFromProtocol = function deleteDeviceFromProtocol(e) {
     e.preventDefault();
-    console.log(device);
     deleteDevice(device.id);
   };
 
@@ -81528,12 +81531,12 @@ var validateDevice = function validateDevice(device, protocol) {
     validate.msg = 'To urządzenie zostało już dodane';
   }
 
-  if (protocol.fromTo.length < 1) {
+  if (protocol.from.length < 1) {
     validate.flag = 0;
     validate.msg = "Najpierw musisz stworzyć protokół przekazania";
   }
 
-  if (protocol.fromTo[0].from != device.unit_id) {
+  if (protocol.from != device.unit_id) {
     validate.flag = 0;
     validate.msg = "Nie można dodać tego urządzenia, ponieważ znajduje się w innej jednostce";
   }
@@ -81733,7 +81736,22 @@ var createHandoverProtocol = function createHandoverProtocol(_ref) {
       key: unit.id,
       value: unit.id
     }, unit.name);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "basics"
+  }, "Podstawa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    name: "basics",
+    type: "string",
+    className: "form-control",
+    ref: register({
+      required: false,
+      minLength: 5,
+      maxLength: 45
+    })
+  }), errors.basics && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    alert: "Nieprawid\u0142owa podstawa nadania protoko\u0142u"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary"
   }, "Nowy protok\xF3\u0142 przekazania"));
@@ -81791,9 +81809,11 @@ var Document = function Document(_ref) {
     className: "col-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: "), units.list.find(function (x) {
     return x.id == protocol.to_id;
-  }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }).name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Podstawa: "), protocol.basics)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-7 col-md-8"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, protocol.devices.map(function (device) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Urz\u0105dzenia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, protocol.devices.map(function (device) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, device);
   }))))));
 };
@@ -81830,7 +81850,7 @@ __webpack_require__.r(__webpack_exports__);
 var Protocol = function Protocol(_ref) {
   var handoverProtocol = _ref.handoverProtocol;
 
-  if (handoverProtocol.fromTo.length > 0) {
+  if (handoverProtocol.from.length > 0) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_2__["default"], null);
   } else {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -81893,9 +81913,10 @@ var List = function List(_ref) {
       addNewProtocol = _ref.addNewProtocol,
       addDeviceToProtocol = _ref.addDeviceToProtocol,
       updateUnit = _ref.updateUnit;
-  var from = handoverProtocol.fromTo[0].from;
-  var to = handoverProtocol.fromTo[0].to;
+  var from = handoverProtocol.from;
+  var to = handoverProtocol.to;
   var devices = handoverProtocol.list;
+  var basics = handoverProtocol.basics;
 
   var storeProtocol = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
@@ -81914,12 +81935,14 @@ var List = function List(_ref) {
               values = {
                 from_id: from,
                 to_id: to,
-                devices: devices
+                devices: devices,
+                basics: basics
               };
-              _context2.next = 5;
+              console.log(values);
+              _context2.next = 6;
               return API.post('store', values);
 
-            case 5:
+            case 6:
               handoverProtocol.list.map( /*#__PURE__*/function () {
                 var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(device) {
                   var updated;
@@ -81965,20 +81988,20 @@ var List = function List(_ref) {
                 progress: undefined
               });
               reset();
-              _context2.next = 15;
+              _context2.next = 16;
               break;
 
-            case 12:
-              _context2.prev = 12;
+            case 13:
+              _context2.prev = 13;
               _context2.t0 = _context2["catch"](1);
               console.log(_context2.t0);
 
-            case 15:
+            case 16:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[1, 12]]);
+      }, _callee2, null, [[1, 13]]);
     }));
 
     return function storeProtocol() {
@@ -81993,7 +82016,7 @@ var List = function List(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Z")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-8 col-md-10"
   }, units.list.find(function (x) {
-    return x.id == handoverProtocol.fromTo[0].from;
+    return x.id == handoverProtocol.from;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -82001,7 +82024,7 @@ var List = function List(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Do")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "col-8 col-md-10"
   }, units.list.find(function (x) {
-    return x.id == handoverProtocol.fromTo[0].to;
+    return x.id == handoverProtocol.to;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("b", null, "Urz\u0105dzenia")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -82084,7 +82107,7 @@ var ProtocolPanel = function ProtocolPanel(_ref) {
   var handoverProtocol = _ref.handoverProtocol;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "panel"
-  }, handoverProtocol.fromTo.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_lack__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_panel__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }, handoverProtocol.from.length < 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_lack__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_panel_panel__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -82146,7 +82169,7 @@ var Panel = function Panel(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Z: ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-10"
   }, units.list.find(function (x) {
-    return x.id == handoverProtocol.fromTo[0].from;
+    return x.id == handoverProtocol.from;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: "2",
     className: "row"
@@ -82155,7 +82178,7 @@ var Panel = function Panel(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Do: ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-10"
   }, units.list.find(function (x) {
-    return x.id == handoverProtocol.fromTo[0].to;
+    return x.id == handoverProtocol.to;
   }).name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     key: "3",
     className: "row"
@@ -82349,7 +82372,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var INITIAL_HANDOVER_PROTOCOL = {
-  fromTo: [],
+  from: '',
+  to: '',
+  basics: '',
   list: [],
   protocols: []
 };
@@ -82361,7 +82386,9 @@ var handoverProtocol = function handoverProtocol() {
   switch (action.type) {
     case 'NEW_HANDOVER_PROTOCOL':
       return _objectSpread(_objectSpread({}, state), {}, {
-        fromTo: [action.item]
+        from: action.item.from,
+        to: action.item.to,
+        basics: action.item.basics
       });
 
     case 'ADD_DEVICE_TO_LIST':
@@ -82370,10 +82397,13 @@ var handoverProtocol = function handoverProtocol() {
       });
 
     case 'RESET_HANDOVER_PROTOCOL':
-      return _objectSpread(_objectSpread({}, state), {}, {
-        fromTo: [],
-        list: []
-      });
+      return {
+        from: '',
+        to: '',
+        basics: '',
+        list: [],
+        protocols: _toConsumableArray(state.protocols)
+      };
 
     case 'DELETE_DEVICE_HANDOVER_PROTOCOL':
       return _objectSpread(_objectSpread({}, state), {}, {

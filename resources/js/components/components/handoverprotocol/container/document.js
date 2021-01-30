@@ -14,8 +14,13 @@ const Document = ({ protocol, units }) => {
                             <b>Do: </b>
                              {units.list.find(x => x.id == protocol.to_id).name}
                         </div>
+                        <div className="col-12">
+                            <b>Podstawa: </b>
+                             {protocol.basics}
+                        </div>
                     </div>
                     <div className="col-7 col-md-8">
+                        <h5>Urządzenia</h5>
                         <ul>
                             {protocol.devices.map((device) => <li>{device}</li>)}
                         </ul>

@@ -5,7 +5,7 @@ import List from  './list'
 import Error from '../../../alerts/error'
 
 const Protocol = ({ handoverProtocol }) => {
-    if(handoverProtocol.fromTo.length > 0){
+    if(handoverProtocol.from.length > 0){
         return <List />
     } else {
         return <Error alert="Protokół przekazania nie został utworzony" />

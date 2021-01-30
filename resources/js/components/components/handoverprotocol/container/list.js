@@ -10,9 +10,10 @@ import { update } from 'lodash'
 
 const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProtocol, updateUnit }) => {
 
-    const from = handoverProtocol.fromTo[0].from;
-    const to = handoverProtocol.fromTo[0].to;
+    const from = handoverProtocol.from;
+    const to = handoverProtocol.to;
     const devices = handoverProtocol.list;
+    const basics = handoverProtocol.basics;
 
     const storeProtocol = async () => {
         const API = axios.create({
@@ -26,9 +27,10 @@ const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProto
             const values = {
                 from_id: from,
                 to_id: to,
-                devices: devices
+                devices: devices,
+                basics: basics
             };
-
+            console.log(values)
             await API.post('store', values);
             handoverProtocol.list.map(async device => {
                 const updated = {
@@ -66,11 +68,11 @@ const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProto
         <React.Fragment>
             <div className="row">
                 <div className="col-4 col-md-2"><b>Z</b></div>
-                <div className="col-8 col-md-10">{units.list.find(x => x.id == handoverProtocol.fromTo[0].from).name}</div>
+                <div className="col-8 col-md-10">{units.list.find(x => x.id == handoverProtocol.from).name}</div>
             </div>
             <div className="row">
                 <div className="col-4 col-md-2"><b>Do</b></div>
-                <div className="col-8 col-md-10">{units.list.find(x => x.id == handoverProtocol.fromTo[0].to).name}</div>
+                <div className="col-8 col-md-10">{units.list.find(x => x.id == handoverProtocol.to).name}</div>
             </div>
             <div className="row">
                 <b>Urządzenia</b>

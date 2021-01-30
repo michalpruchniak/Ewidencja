@@ -48,6 +48,13 @@ const createHandoverProtocol = ({ units, newprotocol }) => {
                         )}
                     </select>
             </div>
+            <div className="form-group">
+                    <label htmlFor="basics">Podstawa</label>
+                    <input name="basics" type="string" className="form-control" ref={register({ required: false, minLength:5, maxLength:45 })} />
+                    {errors.basics && (
+                        <Error alert="Nieprawidłowa podstawa nadania protokołu" />
+                    )}
+            </div>
             <button type="submit" className="btn btn-primary">Nowy protokół przekazania</button>
 
         </form>

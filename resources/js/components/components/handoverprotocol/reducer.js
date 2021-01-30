@@ -1,5 +1,7 @@
 const INITIAL_HANDOVER_PROTOCOL = {
-    fromTo: [],
+    from: '',
+    to: '',
+    basics: '',
     list: [],
     protocols: [],
 }
@@ -9,7 +11,9 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
         case 'NEW_HANDOVER_PROTOCOL':
             return {
                 ...state,
-                fromTo: [action.item]
+                from: action.item.from,
+                to: action.item.to,
+                basics: action.item.basics,
             }
         case 'ADD_DEVICE_TO_LIST':
             return {
@@ -18,9 +22,11 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
             }
         case 'RESET_HANDOVER_PROTOCOL':
             return {
-                ...state,
-                fromTo: [],
-                list: []
+                from: '',
+                to: '',
+                basics: '',
+                list: [],
+                protocols: [...state.protocols]
             }
         case 'DELETE_DEVICE_HANDOVER_PROTOCOL':
             return {

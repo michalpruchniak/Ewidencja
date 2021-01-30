@@ -8,12 +8,12 @@ const validateDevice = (device, protocol) => {
         validate.msg = 'To urządzenie zostało już dodane'
     }
 
-    if (protocol.fromTo.length < 1){
+    if (protocol.from.length < 1){
         validate.flag = 0;
         validate.msg = "Najpierw musisz stworzyć protokół przekazania"
     }
 
-    if (protocol.fromTo[0].from != device.unit_id) {
+    if (protocol.from != device.unit_id) {
         validate.flag = 0;
         validate.msg = "Nie można dodać tego urządzenia, ponieważ znajduje się w innej jednostce"
     }

@@ -8,10 +8,12 @@ import MenuList from './menuList'
 import MenuProtocol from './menuProtocol'
 
 
-const Device = ({device, type, addDevice, handoverProtocol}) => {
+const Device = ({device, type, addDevice, handoverProtocol, units}) => {
     const [flag, setFlag] = useState(0);
+
+
     useEffect(() => {
-        if(handoverProtocol.fromTo.length > 0){
+        if(handoverProtocol.from.length > 0){
             setFlag(validateDevice(device, handoverProtocol).flag);
         }
     });
@@ -30,7 +32,7 @@ const Device = ({device, type, addDevice, handoverProtocol}) => {
                                 <tr>
                                     <td><b>Numer inwentarzowy</b></td>
                                     <td>{device.inventory}</td>
-                                    <td>Unit: {device.unit_id}</td>
+                                    <td>Jednostka: {units.list.find(x => x.id == device.unit_id).name}</td>
                                 </tr>
                                 <tr>
                                     <td><b>Cena zakupu</b></td>
@@ -55,7 +57,8 @@ const Device = ({device, type, addDevice, handoverProtocol}) => {
     );
 }
 const mapStateToProps = state => ({
-    handoverProtocol: state.handoverProtocol
+    handoverProtocol: state.handoverProtocol,
+    units: state.units
 
 });
 

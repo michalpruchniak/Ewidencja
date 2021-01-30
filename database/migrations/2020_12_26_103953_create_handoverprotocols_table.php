@@ -17,8 +17,6 @@ class CreateHandoverprotocolsTable extends Migration
             $table->id();
             $table->integer('from_id');
             $table->integer('to_id');
-            $table->integer('type')->default(1); //1. dokument przekazania, 2. dokument brakowania
-            $table->integer('status')->default(1); //0. unieważniony, 1. wystawiony, 2. podpisany
             $table->string('basics')->nullable();
             $table->string('transport')->nullable();
             $table->timestamps();

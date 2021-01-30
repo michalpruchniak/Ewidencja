@@ -7,7 +7,7 @@ import Panel from './panel/panel'
 const ProtocolPanel = ({ handoverProtocol }) => {
     return (
         <div className="panel">
-            {(handoverProtocol.fromTo.length === 0 ? <Lack /> : <Panel /> )}
+            {(handoverProtocol.from.length < 1 ? <Lack /> : <Panel /> )}
         </div>
     );
 }

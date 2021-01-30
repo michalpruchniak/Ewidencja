@@ -12,8 +12,6 @@ class Handoverprotocol extends Model
     protected $fillable = [
         "from_id",
         "to_id",
-        "type",
-        "status",
         "basics",
         "transport"
     ];

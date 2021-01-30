@@ -10903,6 +10903,12 @@ a.text-dark:focus {
   }
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .break-15 {
   margin-top: 15px;
 }
@@ -10916,11 +10922,5 @@ a.text-dark:focus {
 
 .panel p {
   text-align: center;
-}
-
-.panel ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 

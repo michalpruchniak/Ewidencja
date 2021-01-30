@@ -7,7 +7,6 @@ const MenuProtocol = ({ device, deleteDevice }) => {
 
     const deleteDeviceFromProtocol = (e) => {
         e.preventDefault();
-        console.log(device);
         deleteDevice(device.id)
 
     }
