@@ -1,7 +1,9 @@
 import actions from './actions'
+import address from '../../address'
+
 
 const fetchOperationsystem= async () => {
-    const response = await fetch('http://localhost:8000/operationsystem', { method: 'GET' })
+    const response = await fetch(address + '/operationsystem', { method: 'GET' })
     const json = await response.json();
 
     return json;

@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import Device from '../../device/container/device'
 import { update } from 'lodash'
+import address from '../../../address'
+
 
 const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProtocol, updateUnit }) => {
 
@@ -17,7 +19,7 @@ const List = ({ handoverProtocol, units, reset, addNewProtocol, addDeviceToProto
 
     const storeProtocol = async () => {
         const API = axios.create({
-            baseURL: 'http://localhost:8000/protocols',
+            baseURL: address + '/protocols',
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
         });

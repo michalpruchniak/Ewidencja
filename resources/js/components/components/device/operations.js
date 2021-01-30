@@ -1,7 +1,9 @@
 import actions from './actions'
+import address from '../../address'
+
 
 const fetchDevices = async () => {
-    const response = await fetch('http://localhost:8000/devices', { method: 'GET' })
+    const response = await fetch(address + '/devices', { method: 'GET' })
     const json = await response.json();
 
     return json;

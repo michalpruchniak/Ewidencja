@@ -25,17 +25,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/units', [UnitsController::class, 'getAllUnits']);
-Route::get('/people', [PeopleController::class, 'getAllPeople']);
-Route::get('/producers', [ProducersController::class, 'getAllProducers']);
-Route::get('/devices', [DevicesController::class, 'getAllDevices']);
-Route::get('/operationsystem', [OperationsystemController::class, 'getAllOperationsystem']);
-Route::get('/protocols', [ProtocolsController::class, 'getAllProtocols']);
-Route::get('/devices-with-protocols', [ProtocolsController::class, 'devicesWithProtocols']);
-Route::post('/producers/store', [ProducersController::class, 'storeProducer']);
-Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
-Route::post('/protocols/store', [ProtocolsController::class, 'store']);
-Route::post('/protocols/updateunit', [ProtocolsController::class, 'updateUnit']);
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/units', [UnitsController::class, 'getAllUnits']);
+    Route::get('/people', [PeopleController::class, 'getAllPeople']);
+    Route::get('/producers', [ProducersController::class, 'getAllProducers']);
+    Route::get('/devices', [DevicesController::class, 'getAllDevices']);
+    Route::get('/operationsystem', [OperationsystemController::class, 'getAllOperationsystem']);
+    Route::get('/protocols', [ProtocolsController::class, 'getAllProtocols']);
+    Route::get('/devices-with-protocols', [ProtocolsController::class, 'devicesWithProtocols']);
+    Route::post('/producers/store', [ProducersController::class, 'storeProducer']);
+    Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
+    Route::post('/protocols/store', [ProtocolsController::class, 'store']);
+    Route::post('/protocols/updateunit', [ProtocolsController::class, 'updateUnit']);
+});
+
 
 
 

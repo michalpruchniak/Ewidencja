@@ -1,13 +1,15 @@
 import actions from './actions'
+import address from '../../address'
+
 
 const fetchProtocols = async () => {
-    const response = await fetch('http://localhost:8000/protocols', { method: 'GET' });
+    const response = await fetch(address + '/protocols', { method: 'GET' });
     const json = await response.json();
 
     return json;
 }
 const fetchDevicesWithProtocol = async () => {
-    const response = await fetch('http://localhost:8000/devices-with-protocols', { method: 'GET' });
+    const response = await fetch(address + '/devices-with-protocols', { method: 'GET' });
     const json = await response.json();
 
     return json;

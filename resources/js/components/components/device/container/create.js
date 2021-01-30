@@ -6,6 +6,8 @@ import Error from '../../../alerts/error';
 import actions from '../actions'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import address from '../../../address'
+
 
 
 
@@ -14,7 +16,7 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
 
     const storeDevice = async (values, e) => {
         const API = axios.create({
-            baseURL: 'http://localhost:8000/devices',
+            baseURL: address + '/devices',
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
         });

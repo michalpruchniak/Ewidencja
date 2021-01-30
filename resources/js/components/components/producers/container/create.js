@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form'
 import Error from '../../../alerts/error'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import address from '../../../address'
+
 
 
 const createProducer = (props) => {
@@ -13,7 +15,7 @@ const createProducer = (props) => {
 
     const storeProducer = async (values, e) => {
         const API = axios.create({
-            baseURL: 'http://localhost:8000/producers',
+            baseURL: address + '/producers',
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
         });
