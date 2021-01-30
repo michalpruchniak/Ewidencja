@@ -81036,7 +81036,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var perSite = 10;
+var perSite = 5;
 
 var DevicesContainer = function DevicesContainer(_ref) {
   var devices = _ref.devices,
@@ -81134,11 +81134,17 @@ var DevicesContainer = function DevicesContainer(_ref) {
 
     var _loop = function _loop(i) {
       list.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        key: i,
+        className: "page-item",
+        key: i
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "page-link",
         onClick: function onClick() {
           return handlePageClick(i);
+        },
+        style: {
+          cursor: "pointer"
         }
-      }, i));
+      }, i), " "));
     };
 
     for (var i = 1; i <= pages; i++) {
@@ -81245,9 +81251,11 @@ var DevicesContainer = function DevicesContainer(_ref) {
       device: device,
       type: "list"
     });
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    "aria-label": "Page navigation"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "pagination"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
     pages: pages
   }))));
 };
@@ -81472,6 +81480,7 @@ var getAllDevices = function getAllDevices() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/device/types.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -81490,6 +81499,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+
 var INIT_DEVICES = {
   list: []
 };
@@ -81499,19 +81509,18 @@ var devices = function devices() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'ADD_DEVICE':
+    case _types__WEBPACK_IMPORTED_MODULE_1__["default"].add_device:
       return {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       };
 
-    case 'UPDATE_UNIT':
+    case _types__WEBPACK_IMPORTED_MODULE_1__["default"].update_unit:
       var index = state.list.findIndex(function (device) {
         return device.id == action.item.id;
       });
 
       var newList = _toConsumableArray(state.list);
 
-      console.log(index);
       newList[index].unit_id = action.item.unit_id;
       return _objectSpread(_objectSpread({}, state), {}, {
         list: newList
@@ -81523,6 +81532,22 @@ var devices = function devices() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (devices);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/device/types.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/components/device/types.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  add_device: "ADD_DEVICE",
+  update_unit: "UPDATE_UNIT"
+});
 
 /***/ }),
 
@@ -82374,6 +82399,7 @@ var getAllProtocols = function getAllProtocols() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/handoverprotocol/types.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82392,6 +82418,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var INITIAL_HANDOVER_PROTOCOL = {
   from: '',
   to: '',
@@ -82405,19 +82432,19 @@ var handoverProtocol = function handoverProtocol() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'NEW_HANDOVER_PROTOCOL':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].new_handover_protocol:
       return _objectSpread(_objectSpread({}, state), {}, {
         from: action.item.from,
         to: action.item.to,
         basics: action.item.basics
       });
 
-    case 'ADD_DEVICE_TO_LIST':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_device_to_list:
       return _objectSpread(_objectSpread({}, state), {}, {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       });
 
-    case 'RESET_HANDOVER_PROTOCOL':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].reset_handover_protocol:
       return {
         from: '',
         to: '',
@@ -82426,21 +82453,21 @@ var handoverProtocol = function handoverProtocol() {
         protocols: _toConsumableArray(state.protocols)
       };
 
-    case 'DELETE_DEVICE_HANDOVER_PROTOCOL':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].delete_device_handover_protocol:
       return _objectSpread(_objectSpread({}, state), {}, {
         list: _toConsumableArray(state.list.filter(function (device) {
           return device.id !== action.id;
         }))
       });
 
-    case 'ADD_NEW_PROTOCOL':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_new_protocol:
       var newprotocol = action.item;
       newprotocol.devices = [];
       return _objectSpread(_objectSpread({}, state), {}, {
         protocols: [].concat(_toConsumableArray(state.protocols), [newprotocol])
       });
 
-    case 'ADD_DEVICE_TO_PROTOCOL':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_device_to_protocol:
       var _action$item = action.item,
           protocol_id = _action$item.protocol_id,
           name = _action$item.name;
@@ -82462,6 +82489,26 @@ var handoverProtocol = function handoverProtocol() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (handoverProtocol);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/handoverprotocol/types.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/components/handoverprotocol/types.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  new_handover_protocol: "NEW_HANDOVER_PROTOCOL",
+  add_device_to_list: "ADD_DEVICE_TO_LIST",
+  reset_handover_protocol: "RESET_HANDOVER_PROTOCOL",
+  delete_device_handover_protocol: "DELETE_HANDOVER_PROTOCOL",
+  add_new_protocol: "ADD_NEW_PROTOCOL",
+  add_device_to_protocol: "ADD_DEVICE_TO_PROTOCOL"
+});
 
 /***/ }),
 
@@ -82727,6 +82774,7 @@ var getAllOperationsystem = function getAllOperationsystem() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/operationsystem/types.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82745,6 +82793,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var INIT_OPERATION_SYSTEM = {
   list: []
 };
@@ -82754,7 +82803,7 @@ var operationSystem = function operationSystem() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'ADD_OPERATION_SYSTEM':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_operation_system:
       return _objectSpread(_objectSpread({}, state), {}, {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       });
@@ -82768,6 +82817,21 @@ var operationSystem = function operationSystem() {
 
 /***/ }),
 
+/***/ "./resources/js/components/components/operationsystem/types.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/components/operationsystem/types.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  add_operation_system: 'ADD_OPERATION_SYSTEM'
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/components/people/reducer.js":
 /*!**************************************************************!*\
   !*** ./resources/js/components/components/people/reducer.js ***!
@@ -82777,6 +82841,7 @@ var operationSystem = function operationSystem() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/people/types.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -82795,6 +82860,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var INITIAL_PEOPLE = {
   list: []
 };
@@ -82804,7 +82870,7 @@ var people = function people() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'ADD_PERSON':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_person:
       return _objectSpread(_objectSpread({}, state), {}, {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       });
@@ -82815,6 +82881,21 @@ var people = function people() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (people);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/people/types.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/components/people/types.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  add_person: "ADD_PERSON"
+});
 
 /***/ }),
 
@@ -83079,6 +83160,7 @@ var getAllProducers = function getAllProducers() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/producers/types.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -83097,6 +83179,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var INIT_PRODUCERS = {
   list: []
 };
@@ -83106,7 +83189,7 @@ var producers = function producers() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'ADD_PRODUCER':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_producer:
       return _objectSpread(_objectSpread({}, state), {}, {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       });
@@ -83117,6 +83200,21 @@ var producers = function producers() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (producers);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/producers/types.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/components/producers/types.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  add_producer: "ADD_PRODUCER"
+});
 
 /***/ }),
 
@@ -83420,6 +83518,7 @@ var getAllUnits = function getAllUnits() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/units/types.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -83438,6 +83537,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
 var INITIAL_UNITS = {
   list: []
 };
@@ -83447,7 +83547,7 @@ var units = function units() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case 'ADD_UNIT':
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_unit:
       return _objectSpread(_objectSpread({}, state), {}, {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       });
@@ -83458,6 +83558,21 @@ var units = function units() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (units);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/units/types.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/components/units/types.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  add_unit: 'ADD_UNIT'
+});
 
 /***/ }),
 

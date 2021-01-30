@@ -1,17 +1,17 @@
+import types from './types'
 const INIT_DEVICES = {
     list: []
 }
 
 const devices = (state = INIT_DEVICES, action) => {
     switch (action.type) {
-        case 'ADD_DEVICE':
+        case types.add_device:
             return {
                 list: [...state.list, action.item]
             }
-        case 'UPDATE_UNIT':
+        case types.update_unit:
             const index = state.list.findIndex(device => device.id == action.item.id);
             const newList = [...state.list];
-            console.log(index);
             newList[index].unit_id = action.item.unit_id;
 
             return {

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { connect} from 'react-redux'
 import Device from './device'
 
-const perSite = 10;
+const perSite = 5;
 
 const DevicesContainer = ({ devices, units, producers, types }) => {
     const inputName = useRef('');
@@ -55,7 +55,8 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
     const Pagination = ({ pages }) => {
         let list = []
         for (let i = 1; i <= pages; i++) {
-            list.push(<li key={i} onClick={() => handlePageClick(i)}>{i}</li>)
+
+            list.push(<li className="page-item" key={i}> <a className="page-link" onClick={() => handlePageClick(i)} style={{cursor: "pointer"}}>{i}</a> </li>)
         }
         return list;
     }
@@ -127,11 +128,11 @@ const DevicesContainer = ({ devices, units, producers, types }) => {
             {allItems.slice(from, to).map(device =>
                 <Device key={device.id} device={device} type="list"/>
             )}
-            <div className="row">
-                <ul>
+            <nav aria-label="Page navigation">
+                <ul className="pagination">
                     <Pagination pages={pages} />
                 </ul>
-            </div>
+            </nav>
         </React.Fragment>
     );
 }

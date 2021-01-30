@@ -1,3 +1,5 @@
+import types from './types'
+
 const INITIAL_HANDOVER_PROTOCOL = {
     from: '',
     to: '',
@@ -8,19 +10,19 @@ const INITIAL_HANDOVER_PROTOCOL = {
 
 const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
     switch(action.type){
-        case 'NEW_HANDOVER_PROTOCOL':
+        case types.new_handover_protocol:
             return {
                 ...state,
                 from: action.item.from,
                 to: action.item.to,
                 basics: action.item.basics,
             }
-        case 'ADD_DEVICE_TO_LIST':
+        case types.add_device_to_list:
             return {
                 ...state,
                 list: [...state.list, action.item]
             }
-        case 'RESET_HANDOVER_PROTOCOL':
+        case types.reset_handover_protocol:
             return {
                 from: '',
                 to: '',
@@ -28,12 +30,12 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
                 list: [],
                 protocols: [...state.protocols]
             }
-        case 'DELETE_DEVICE_HANDOVER_PROTOCOL':
+        case types.delete_device_handover_protocol:
             return {
                 ...state,
                 list: [...state.list.filter(device => device.id !== action.id)],
             }
-        case 'ADD_NEW_PROTOCOL':
+        case types.add_new_protocol:
             const newprotocol = action.item;
             newprotocol.devices = [];
             return {
@@ -41,7 +43,7 @@ const handoverProtocol = (state = INITIAL_HANDOVER_PROTOCOL, action) => {
                 protocols: [...state.protocols, newprotocol],
             }
 
-            case 'ADD_DEVICE_TO_PROTOCOL':
+            case types.add_device_to_protocol:
             const { protocol_id, name } = action.item
             const protocols = [...state.protocols];
             protocols.filter((x) => {
