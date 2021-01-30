@@ -30,31 +30,25 @@ const createHandoverProtocol = ({ units, newprotocol }) => {
 
     return (
         <form method= "post" onSubmit={handleSubmit(addNewProtocol)}>
-            <div className="row">
-                <div className="col-12 col-md-2">
+            <h2 className="break-15 text-center">Dodaj nowy protokół przekazania</h2>
+
+            <div className="form-group">
                     <label htmlFor="name">Nadawca</label>
-                </div>
-                <div className="col-12 col-md-10">
-                    <select name="from" ref={register({ required: true})}>
+                    <select name="from" className="form-control" ref={register({ required: true})}>
                         {units.list.map(unit =>
                             <option key={unit.id} value={unit.id}>{unit.name}</option>
                         )}
                     </select>
-                </div>
             </div>
-            <div className="row">
-                <div className="col-12 col-md-2">
+            <div className="form-group">
                     <label htmlFor="name">Odbiorca</label>
-                </div>
-                <div className="col-12 col-md-10">
-                    <select name="to" ref={register({ required: true })}>
+                    <select name="to" className="form-control" ref={register({ required: true })}>
                         {units.list.map(unit =>
                             <option key={unit.id} value={unit.id}>{unit.name}</option>
                         )}
                     </select>
-                </div>
             </div>
-            <button type="submit" className="btn btn-primary">Dodaj urządzenie</button>
+            <button type="submit" className="btn btn-primary">Nowy protokół przekazania</button>
 
         </form>
     )

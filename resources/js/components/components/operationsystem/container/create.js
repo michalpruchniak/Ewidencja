@@ -44,12 +44,11 @@ const createOperatyionsystem = (props) => {
     }
     return(
         <form onSubmit={handleSubmit(storeProducer)}>
-            <div className="row">
-                <div className="col-12 col-md-2">
+            <h2 className="break-15 text-center">Dodaj nowy system operacyjny</h2>
+
+            <div className="form-group">
                     <label htmlFor="name">Nazwa</label>
-                </div>
-                <div className="col-12 col-md-10">
-                    <input name="name" type="strig" ref={register({ required:true, minLength: 2, maxLength: 30 })} />
+                    <input name="name" type="strig" className="form-control" ref={register({ required:true, minLength: 2, maxLength: 30 })} />
                     {_.get("name.type", errors) === "required" && (
                         <Error alert="To pole jest wymagane" />
                     )}
@@ -59,7 +58,6 @@ const createOperatyionsystem = (props) => {
                     {_.get("name.type", errors) === "maxLength" && (
                         <Error alert="To pole musi się składać z maksymalnie 30 znaków" />
                     )}
-                </div>
             </div>
             <button type="submit" className="btn btn-primary">Dodaj nowy system operacyjny</button>
         </form>

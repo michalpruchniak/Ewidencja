@@ -43,12 +43,11 @@ const createProducer = (props) => {
     }
     return(
         <form onSubmit={handleSubmit(storeProducer)}>
-            <div className="row">
-                <div className="col-12 col-md-2">
+            <h2 className="break-15 text-center">Dodaj nowego producenta</h2>
+
+            <div className="form-group">
                     <label htmlFor="name">Nazwa</label>
-                </div>
-                <div className="col-12 col-md-10">
-                    <input name="name" type="strig" ref={register({ required:true, minLength: 2, maxLength: 45 })} />
+                    <input name="name" type="strig" ref={register({ required:true, minLength: 2, maxLength: 45 })} className="form-control" />
                     {_.get("name.type", errors) === "required" && (
                         <Error alert="To pole jest wymagane" />
                     )}
@@ -58,7 +57,6 @@ const createProducer = (props) => {
                     {_.get("name.type", errors) === "maxLength" && (
                         <Error alert="To pole musi się składać z maksymalnie 40 znaków" />
                     )}
-                </div>
             </div>
             <button type="submit" className="btn btn-primary">Dodaj nowego producenta</button>
         </form>

@@ -19,6 +19,7 @@ const Nav = () => {
                         <div className="dropdown-menu">
                             <Link to="/nowe-urzadzenie" className="dropdown-item">Nowe urządzenie</Link>
                             <Link to="/nowy-producent" className="dropdown-item">Nowy producent</Link>
+                            <Link to="/nowy-system-operacyjny" className="dropdown-item">Nowy system operacyjny</Link>
                             <div className="dropdown-divider"></div>
                             <Link to="/nowy-protokol-przekazania" className="dropdown-item">Nowy protokół przekazania</Link>
                         </div>
