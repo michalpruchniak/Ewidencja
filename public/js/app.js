@@ -80679,8 +80679,8 @@ var createDevice = function createDevice(_ref) {
   }, "Zablokowany"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
     value: "3"
   }, "Zwr\xF3cony"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-    value: "9"
-  }, "Wybrakowany")), errors.classification && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    value: "4"
+  }, "Wybrakowany")), errors.status && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_alerts_error__WEBPACK_IMPORTED_MODULE_5__["default"], {
     alert: "Nieprawid\u0142owy status"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
@@ -80773,9 +80773,7 @@ var createDevice = function createDevice(_ref) {
     id: "type",
     className: "form-control",
     ref: register({
-      required: true,
-      min: 1,
-      max: 20
+      required: true
     })
   }, types.list.map(function (type) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("optgroup", {

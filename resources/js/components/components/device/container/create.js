@@ -80,9 +80,9 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
                         <option value="1">Aktywny</option>
                         <option value="2">Zablokowany</option>
                         <option value="3">Zwrócony</option>
-                        <option value="9">Wybrakowany</option>
+                        <option value="4">Wybrakowany</option>
                     </select>
-                    {errors.classification && (
+                    {errors.status && (
                         <Error alert="Nieprawidłowy status" />
                     )}
             </div>
@@ -147,7 +147,7 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
                     <label htmlFor="type">Typ</label>
 
 
-                    <select name="type_id" id="type" className="form-control" ref={register({ required: true, min: 1, max: 20 })}>
+                    <select name="type_id" id="type" className="form-control" ref={register({ required: true })}>
                         {types.list.map(type =>
                             <optgroup key={type.id} label={type.name}>
 

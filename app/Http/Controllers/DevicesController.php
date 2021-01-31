@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Device;
+use App\Http\Requests\DeviceRequest;
 
 class DevicesController extends Controller
 {
@@ -11,12 +12,12 @@ class DevicesController extends Controller
         $devices = Device::all();
         return json_encode($devices);
     }
-    public function storeDevice(Request $request){
+    public function storeDevice(DeviceRequest $request){
         $device = Device::create([
             'name' => $request->name,
-            'set_id'  => intval($request->set),
             'network_type' => intval($request->network_type),
             'inventory' => $request->inventory,
+            'status' => $request->status,
             'classification' => intval($request->classification),
             'unit_id' => intval($request->unit_id),
             'producers_id' => intval($request->producers_id),
