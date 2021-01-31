@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\ProtocolsController;
 use App\Http\Controllers\PeopleController;
@@ -21,11 +22,8 @@ use App\Http\Controllers\OperationsystemController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => ['auth']], function(){
+    Route::get('/', [HomeController::class, 'index']);
     Route::get('/units', [UnitsController::class, 'getAllUnits']);
     Route::get('/people', [PeopleController::class, 'getAllPeople']);
     Route::get('/producers', [ProducersController::class, 'getAllProducers']);
@@ -37,6 +35,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
     Route::post('/protocols/store', [ProtocolsController::class, 'store']);
     Route::post('/protocols/updateunit', [ProtocolsController::class, 'updateUnit']);
+
+    Route::get('/print/{id}', [ProtocolsController::class, 'print']);
+
 });
 
 

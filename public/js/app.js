@@ -81480,7 +81480,7 @@ var getAllDevices = function getAllDevices() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/device/types.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./resources/js/components/components/device/types.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -81509,12 +81509,12 @@ var devices = function devices() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case _types__WEBPACK_IMPORTED_MODULE_1__["default"].add_device:
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].add_device:
       return {
         list: [].concat(_toConsumableArray(state.list), [action.item])
       };
 
-    case _types__WEBPACK_IMPORTED_MODULE_1__["default"].update_unit:
+    case _types__WEBPACK_IMPORTED_MODULE_0__["default"].update_unit:
       var index = state.list.findIndex(function (device) {
         return device.id == action.item.id;
       });
@@ -81829,6 +81829,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _address__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../address */ "./resources/js/components/address.js");
+
 
 
 
@@ -81857,7 +81859,11 @@ var Document = function Document(_ref) {
     className: "col-7 col-md-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Urz\u0105dzenia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, protocol.devices.map(function (device) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, device);
-  }))))));
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: _address__WEBPACK_IMPORTED_MODULE_2__["default"] + "/print/" + protocol.id,
+    "class": "card-link",
+    target: "_blanc"
+  }, "Drukuj dokument przekazania")));
 };
 
 var mapStateToProps = function mapStateToProps(state) {

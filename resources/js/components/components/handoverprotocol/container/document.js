@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import address from '../../../address'
+
 const Document = ({ protocol, units }) => {
     return(
         <div className="card break-15">
@@ -25,8 +27,12 @@ const Document = ({ protocol, units }) => {
                             {protocol.devices.map((device) => <li>{device}</li>)}
                         </ul>
                     </div>
+
                 </div>
+                <a href={address + "/print/" + protocol.id} class="card-link" target="_blanc">Drukuj dokument przekazania</a>
+
             </div>
+
         </div>
     );
 

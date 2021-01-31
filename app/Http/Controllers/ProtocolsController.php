@@ -18,7 +18,8 @@ class ProtocolsController extends Controller
     public function store(Request $request){
         $protocol = Handoverprotocol::create([
             "from_id" => $request->from_id,
-            "to_id" => $request->to_id
+            "to_id" => $request->to_id,
+            "basics" => $request->basics
         ]);
         $idCats = array_column($request->devices, 'id');
         $protocol->myDevices()->attach($idCats);
@@ -43,5 +44,15 @@ class ProtocolsController extends Controller
 
 
         return json_encode($devices);
+    }
+
+    public function print($id){
+        $protocol = Handoverprotocol::find($id);
+        if(!$protocol) {
+            echo 'Ten protokół nie istnieje';
+            exit;
+        }
+
+        return view('protocol')->with('protocol', $protocol);
     }
 }
