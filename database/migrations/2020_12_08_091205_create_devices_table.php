@@ -20,8 +20,8 @@ class CreateDevicesTable extends Migration
             $table->string('inventory')->nullable();
             $table->string('classification')->nullable(); //1 - ŚT, 2 - PŚT, 3 - EP, WNiP - 4, 9 - pozstałe, 0 - bez klasyfikacji
             $table->integer('status')->default(1); //1 - aktywny, 2 - zablokowany, 3 - zwrócony, 9 - wybrakowany
-            $table->integer('quantity')->nullable()->default(0);
-            $table->float('purchase_price')->nullable()->default(0);
+            $table->integer('quantity')->nullable();
+            $table->float('purchase_price')->nullable();
             $table->integer('producers_id')->nullable();
             $table->integer('unit_id')->nullable();
             $table->integer('type_id')->nullable();

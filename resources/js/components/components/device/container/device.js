@@ -32,14 +32,30 @@ const Device = ({device, type, addDevice, handoverProtocol, units}) => {
                                 <tr>
                                     <td><b>Numer inwentarzowy</b></td>
                                     <td>{device.inventory}</td>
-                                    <td>Jednostka: {units.list.find(x => x.id == device.unit_id).name}</td>
                                 </tr>
+                                {device.classification != false ?
+                                 <tr>
+                                    <td><b>Klasyfikacja</b></td>
+                                    <td>{device.classification}</td>
+                                </tr> : null}
                                 <tr>
-                                    <td><b>Cena zakupu</b></td>
-                                    <td>
-                                        {device.purchase_price}
-                                    </td>
+                                    <td><b>Jednostka</b></td>
+                                    <td>{units.list.find(x => x.id == device.unit_id).name}</td>
                                 </tr>
+                                {device.classification != false ?
+                                    <tr>
+                                        <td><b>Cena zakupu</b></td>
+                                        <td>
+                                            {device.purchase_price} zł
+                                        </td>
+                                    </tr> : null}
+                                {device.purchase_price != false ?
+                                    <tr>
+                                        <td><b>Cena zakupu</b></td>
+                                        <td>
+                                            {device.purchase_price} zł
+                                        </td>
+                                    </tr> : null}
                             </tbody>
                         </table>
                     </div>

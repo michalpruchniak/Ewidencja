@@ -20,6 +20,7 @@ class DevicesController extends Controller
             'classification' => intval($request->classification),
             'unit_id' => intval($request->unit_id),
             'producers_id' => intval($request->producers_id),
+            'purchase_price' => intval($request->purchase_price),
             'type_id' => intval($request->type_id),
             'serial_number' => $request->serial_number,
             'imei' => $request->imei,

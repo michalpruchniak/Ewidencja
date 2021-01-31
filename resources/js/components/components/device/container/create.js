@@ -22,7 +22,7 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
         });
 
         try {
-            console.log(values);
+
             await API.post('store', values)
                 .then((res) => {
                     toast.success('Producent został dodany poprawnie', {
@@ -34,6 +34,7 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
                         draggable: true,
                         progress: undefined,
                     });
+                    console.log(res.data);
                     newDevice(res.data);
 
                 });

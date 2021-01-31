@@ -17,6 +17,7 @@ class Device extends Model
         'classification',
         'unit_id',
         'producers_id',
+        'purchase_price',
         'type_id',
         'serial_number',
         'imei',
