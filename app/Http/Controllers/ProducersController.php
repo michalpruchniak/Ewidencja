@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Producer;
 
+use App\Http\Requests\ProducersRequest;
+
+
 class ProducersController extends Controller
 {
       public function getAllProducers(){
@@ -12,7 +15,7 @@ class ProducersController extends Controller
         return json_encode($producers);
     }
 
-    public function storeProducer(Request $request){
+    public function storeProducer(ProducersRequest $request){
       $producer = Producer::create([
         'name' => $request->name
       ]);

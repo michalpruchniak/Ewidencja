@@ -1,7 +1,9 @@
+## Technologie
+* React + Redux - Większość kodu napisałem w React i Redux.
+* Laravel - udostępnia API, walidację, etc.
+
 ## O projekcie
+Początkowo ten projekt miał być wykorzystany do ewidencjonowania sprzętu w moim obecnym miejscu pracy, jednak te założenia się zmieniły (o czym za chwilę). Wynikało to z faktu, że moi poprzednicy napisali własny skrypt, który jest trochę dziwny - napisany w czystym PHP (a więc kod PHP mieszał się z HTML), duże części kodu były zakomentowane, między nimi latały jakieś zmienne, które nic nie robiły. Chciałem napisać nowy skrypt, jednak z racji tego, że szukam nowej pracy, przestałem czuć, potrzebę, żeby ten skrypt zostawić. Dlatego traktuję go jako projekt edukacyjny. Początki tego projektu mają jednak swoje odbicie w tym, do czego początkowo chciałem tego skryptu użyć, np. w konstrukcji bazy danych (chociaż zmieniłem nazwy tabel). W tym projekcie nie patrzyłem na warstwę wizualną, ponieważ chciałem po prostu poćwiczyć React i Redux. Dlatego wykoszytałem po prostu Bootrapa.
 
-Nieniejszy projekt jest przedewszystkim projektem pisanym w React. Chciałem w nim sprawdzić, czy potrafię tworzyć aplikacje full-stack. W moim przypadku jest to skrypt aplikacji do prowadzenia ewidencji. Zdanie było nieco utrudnione, ponieważ do projektu wykorzystuję istniejącą bazę danych, która nie została dobrze zrobiona. Podobnie, jak poprzedni skrypt, który tej bazy używał. Nie dość, że został stworzony w kodzie spagetti w czytym PHP, to zdarzały się takie rodzynki, jak zmienna (za przeproszeniem) $dupa, a niektóre skrypt składały się w większości z zakomentowanego kodu. Uznałem więc, że dobrym ćwiczeniem będzie napisanie tego kodu od nowa z wykorzystaniem Reacta i Laravela. Laravel udostępnia API, ale zdecydowana większość kodu jest pisana właśnie w React.
-
-## Założenia
-
-Skrypt od samego początku nie miał być super designerski. Miał działać i używać Reacta, bo właśnie o zdobycie praktycznej wiedzy z tej bibliteki chodziło mi najbardziej. Dlatego właśnie używałem Bootstrapa. Nie zależało mi, żeby ten projekt ukończyć jak najszybciej i być może w międzyczasie będę realizował jakieś inne projekty.
+## Na jakim etapie jest projekt
+Jak wspomniałem wcześniej, jest to projekt szkoleniowy, więc wprowadzę jeszcze drobne poprawki, np, w kwestii walidacji w Laravel i na razie ten projekt zostawię. Wiem, że można wprowadzić w nim sporo dodatków, np. edycja urządzeń, ale te dodatki nauczą mnie mniej, niż stworzenie kolejnego projektu z zupełnie innymi założeniami. Dlatego teraz zamierzam nauczyć się czegoś nowego (na razie nie zdradzę czego) i stworzę kolejny projekt, w których wykorzystam nową wiedzę.
