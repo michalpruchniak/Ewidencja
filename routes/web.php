@@ -22,7 +22,7 @@ use App\Http\Controllers\OperationsystemController;
 |
 */
 
-Route::group(['middleware' => ['auth']], function(){
+// Route::group(['middleware' => ['auth']], function(){
     Route::get('/', [HomeController::class, 'index']);
     Route::get('/units', [UnitsController::class, 'getAllUnits']);
     Route::get('/people', [PeopleController::class, 'getAllPeople']);
@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/print/{id}', [ProtocolsController::class, 'print']);
 
-});
+// });
 
 
 

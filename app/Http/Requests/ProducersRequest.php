@@ -24,7 +24,7 @@ class ProducersRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'requried|string|between:2,45',
+            'name' => 'required|string|between:2,40',
         ];
     }
 }
