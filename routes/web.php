@@ -34,6 +34,7 @@ use App\Http\Controllers\OperationsystemController;
     Route::post('/producers/store', [ProducersController::class, 'storeProducer']);
     Route::post('/devices/store', [DevicesController::class, 'storeDevice']);
     Route::post('/protocols/store', [ProtocolsController::class, 'store']);
+    Route::post('/operationsystem/store', [OperationsystemController::class, 'store']);
     Route::post('/protocols/updateunit', [ProtocolsController::class, 'updateUnit']);
 
     Route::get('/print/{id}', [ProtocolsController::class, 'print']);

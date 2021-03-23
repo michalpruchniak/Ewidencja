@@ -12,4 +12,10 @@ class OperationsystemController extends Controller
         $operationsystem = Operationsystem::all();
         return json_encode($operationsystem);
   }
+    public function store(Request $request){
+    $op = Operationsystem::create([
+      'name' => $request->name
+    ]);
+    return json_encode($op);
+  }
 }

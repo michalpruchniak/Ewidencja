@@ -80460,7 +80460,7 @@ if (document.getElementById('example')) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("http://localhost:8000");
+/* harmony default export */ __webpack_exports__["default"] = ("http://mpruchniak.pl/ewidencja");
 
 /***/ }),
 
@@ -80594,7 +80594,6 @@ var createDevice = function createDevice(_ref) {
                   draggable: true,
                   progress: undefined
                 });
-                console.log(res.data);
                 newDevice(res.data);
               });
 
@@ -80754,10 +80753,13 @@ var createDevice = function createDevice(_ref) {
     id: "operation_system",
     className: "form-control",
     ref: register({
-      required: true,
+      required: false,
       min: 1
     })
-  }, operationSystem.list.map(function (system) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    key: "0",
+    value: ""
+  }), operationSystem.list.map(function (system) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
       key: system.id,
       value: system.name
@@ -81856,10 +81858,12 @@ var Document = function Document(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Podstawa: "), protocol.basics)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-7 col-md-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Urz\u0105dzenia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, protocol.devices.map(function (device) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, device);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: device.id
+    }, device);
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: _address__WEBPACK_IMPORTED_MODULE_2__["default"] + "/print/" + protocol.id,
-    "class": "card-link",
+    className: "card-link",
     target: "_blanc"
   }, "Drukuj dokument przekazania")));
 };
@@ -82591,7 +82595,7 @@ var createOperatyionsystem = function createOperatyionsystem(props) {
           switch (_context.prev = _context.next) {
             case 0:
               API = axios.create({
-                baseURL: _address__WEBPACK_IMPORTED_MODULE_9__["default"] + '/producers',
+                baseURL: _address__WEBPACK_IMPORTED_MODULE_9__["default"] + '/operationsystem',
                 headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
@@ -83277,7 +83281,7 @@ var INITIAL_TYPES = {
     }]
   }, {
     id: 11,
-    name: 'Drukarki',
+    name: 'Monitory',
     child: [{
       id: 12,
       name: 'Monitor CRT'

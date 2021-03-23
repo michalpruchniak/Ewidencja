@@ -15,7 +15,7 @@ const createOperatyionsystem = (props) => {
 
     const storeProducer = async (values, e) => {
         const API = axios.create({
-            baseURL: address + '/producers',
+            baseURL: address + '/operationsystem',
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
 
         });

@@ -24,12 +24,12 @@ const Document = ({ protocol, units }) => {
                     <div className="col-7 col-md-8">
                         <h5>Urządzenia</h5>
                         <ul>
-                            {protocol.devices.map((device) => <li>{device}</li>)}
+                            {protocol.devices.map((device) => <li key={device.id}>{device}</li>)}
                         </ul>
                     </div>
 
                 </div>
-                <a href={address + "/print/" + protocol.id} class="card-link" target="_blanc">Drukuj dokument przekazania</a>
+                <a href={address + "/print/" + protocol.id} className="card-link" target="_blanc">Drukuj dokument przekazania</a>
 
             </div>
 

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Handoverprotocol;
 use App\Models\Device;
-use App\Http\Requests\ProtocolRequest;
+use App\Http\Requests\ProtocolsRequest;
 use App\Http\Requests\DevicesUnitRequest;
 
 class ProtocolsController extends Controller
@@ -17,7 +17,7 @@ class ProtocolsController extends Controller
         return json_encode($protocols);
     }
 
-    public function store(ProtocolRequest $request){
+    public function store(ProtocolsRequest $request){
         $protocol = Handoverprotocol::create([
             "from_id" => $request->from_id,
             "to_id" => $request->to_id,

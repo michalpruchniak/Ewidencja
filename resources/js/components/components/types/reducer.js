@@ -59,7 +59,7 @@ const INITIAL_TYPES = {
         },
         {
             id: 11,
-            name: 'Drukarki',
+            name: 'Monitory',
             child: [
                 {
                     id: 12,

@@ -34,7 +34,6 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
                         draggable: true,
                         progress: undefined,
                     });
-                    console.log(res.data);
                     newDevice(res.data);
 
                 });
@@ -133,7 +132,8 @@ const createDevice = ({ units, types, producers,operationSystem, newDevice }) =>
                     <label htmlFor="operation_system">System operacyjny</label>
 
 
-                    <select name="operation_system" id="operation_system" className="form-control" ref={register({ required: true, min: 1 })}>
+                    <select name="operation_system" id="operation_system" className="form-control" ref={register({ required: false, min: 1 })}>
+                        <option key="0" value=""></option>
                         {operationSystem.list.map(system =>
                             <option key={system.id} value={system.name}>{system.name}</option>
                         )}
